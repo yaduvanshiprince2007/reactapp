@@ -1,176 +1,169 @@
 import React, { JSX } from "react";
-import "./ItemLong.css";
 import { useSelector } from "react-redux";
 import { RootState } from "../../Redux/store";
 
 interface ItemLongProps {
-  id: number;
-  image?: string;
-  heading?: string;
-  subType?: string;
-  description?: string;
-  keyPoints?: string[];
-  benefits?: string[];
-  targetAudience?: string;
-  duration?: number;
-  oldPrice?: number;
-  effectivePrice?: number;
-  buttons?: JSX.Element;
+    id: number;
+    image?: string;
+    heading?: string;
+    subType?: string;
+    description?: string;
+    keyPoints?: string[];
+    benefits?: string[];
+    targetAudience?: string;
+    duration?: number;
+    oldPrice?: number;
+    effectivePrice?: number;
+    itemType?: "room" | "menu";
+    buttons?: JSX.Element;
 }
 
 const ItemLong: React.FC<ItemLongProps> = ({
-  id,
-  image,
-  heading,
-  subType,
-  description,
-  keyPoints = [],
-  benefits = [],
-  targetAudience,
-  duration,
-  oldPrice,
-  effectivePrice,
-  buttons,
+    id,
+    image,
+    heading,
+    subType,
+    description,
+    keyPoints = [],
+    benefits = [],
+    targetAudience,
+    duration,
+    oldPrice,
+    effectivePrice,
+    itemType = "room",
+    buttons,
 }) => {
-  const plans = useSelector((state: RootState) => state.local.subscribtions.value);
-  const subscribed = plans.includes(id);
-  console.log(image)
-  return (
-    <div className="text-decoration-none">
-      <div className="cardLongItem">
-        <div className="rounded-5 p-4 shadow-sm">
-          <div className="">
-            {/* Image Section */}
+    const bookings = useSelector((state: RootState) => state.local.subscribtions.value);
+    const booked = bookings.includes(id);
+    const priceLabel = itemType === "room" ? "/night" : "";
+
+    return (
+        <div className="group relative flex flex-col h-full bg-white/90 backdrop-blur-sm border border-gold-300/10 rounded-3xl overflow-hidden shadow-md hover:shadow-xl hover:translate-y-[-6px] transition-all duration-300">
+            {/* Ribbon if already Booked */}
+            {booked && (
+                <div className="absolute top-4 right-4 z-10 bg-gold-500 text-white text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full shadow-md border border-white/20 animate-pulse">
+                    Booked
+                </div>
+            )}
+
+            {/* Product Image */}
             {image && (
-              <div className="d-flex justify-content-center image-container m-4">
-                <img
-                  className="img-fluid rounded"
-                  src={image}
-                  alt={heading || "Product Image"}
-                  style={{
-                    height:"13vh"
-                  }}
-                />
-              </div>
-            )}
-
-            {/* Heading & Subtype */}
-            {heading && (
-              <>
-                <h2
-                  title={heading}
-                  className="fs-3 fw-bold text-truncate-1 text-csPrimary mb-3"
-                >
-                  {heading}
-                </h2>
-                <hr className="mb-3" />
-              </>
-            )}
-            {subType && (
-              <h4
-                title={subType}
-                className="fs-5 fw-semibold text-truncate-2 text-muted mb-4"
-              >
-                {subType}
-              </h4>
-            )}
-
-            {/* Description */}
-            {description && (
-              <p
-                title={description}
-                className="fs-6 text-truncate-3 text-secondary mb-4"
-              >
-                {description}
-              </p>
-            )}
-
-            {/* Pricing Section */}
-            {(oldPrice !== undefined || effectivePrice !== undefined) && (
-              <div className="py-3 border-top border-bottom mb-4">
-                <h6 className="fw-semibold mb-3">Subscription Starts at -</h6>
-                <div>
-                  {oldPrice !== undefined && (
-                    <p className="mb-2">
-                      <span className="text-muted fs-6">Old Price: </span>
-                      <span className="fs-6 text-decoration-line-through text-danger">
-                        ₹{oldPrice}/Program
-                      </span>
-                    </p>
-                  )}
-                  {effectivePrice !== undefined && (
-                    <p className="mb-0">
-                      <span className="text-muted fs-6">Effective Price: </span>
-                      <span className="fs-6 fw-bold text-success">
-                        ₹{effectivePrice}/Program
-                      </span>
-                    </p>
-                  )}
+                <div className="relative w-full aspect-[16/10] overflow-hidden bg-navy-50">
+                    <img
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                        src={image}
+                        alt={heading || "Item image"}
+                        loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/15 to-transparent" />
+                    
+                    {/* Item type pill */}
+                    <span className="absolute top-4 left-4 bg-navy-500/80 backdrop-blur-md text-white text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full border border-white/10">
+                        {itemType === "room" ? "Suite" : "Dining"}
+                    </span>
                 </div>
-              </div>
             )}
 
-            {/* Key Points */}
-            {keyPoints.length > 0 && (
-              <div className="mt-4 mb-4">
-                <h6 className="fw-semibold mb-3">Key Highlights:</h6>
-                <div className="d-flex flex-wrap gap-2">
-                  {keyPoints.map((point, index) => (
-                    <div
-                      key={index}
-                      className="badge bg-csPrimary text-white px-3 py-2 text-truncate-1"
-                    >
-                      {point}
+            {/* Product Body */}
+            <div className="p-6 flex flex-col flex-1">
+                {heading && (
+                    <h3 className="text-xl font-bold text-navy-500 font-display mb-1.5 tracking-wide line-clamp-1 group-hover:text-gold-600 transition-colors" title={heading}>
+                        {heading}
+                    </h3>
+                )}
+
+                {subType && (
+                    <p className="text-xs text-navy-400 font-medium mb-3.5 italic line-clamp-1" title={subType}>
+                        {subType}
+                    </p>
+                )}
+
+                <div className="h-px bg-navy-100/50 w-full mb-4" />
+
+                {description && (
+                    <p className="text-xs text-navy-400 font-light leading-relaxed mb-5 line-clamp-3" title={description}>
+                        {description}
+                    </p>
+                )}
+
+                {/* Key highlights (keyPoints) */}
+                {keyPoints.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 mb-5">
+                        {keyPoints.map((point, index) => (
+                            <span 
+                                key={index} 
+                                className="text-[10px] font-semibold text-gold-700 bg-gold-50 border border-gold-200/50 rounded-full px-2.5 py-0.5 line-clamp-1"
+                                title={point}
+                            >
+                                {point}
+                            </span>
+                        ))}
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Benefits */}
-            {benefits.length > 0 && (
-              <div className="mt-4 mb-4">
-                <h6 className="fw-semibold mb-3">Benefits:</h6>
-                <ul className="list-unstyled">
-                  {benefits.map((benefit, index) => (
-                    <li key={index} className="text-secondary fs-6 mb-2">
-                      ✔ {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {/* Target Audience & Duration */}
-            {(targetAudience || duration) && (
-              <div className="mt-4 mb-4">
-                {targetAudience && (
-                  <p className="fs-6 mb-2">
-                    <strong>Target Audience:</strong> {targetAudience}
-                  </p>
                 )}
-                {duration && (
-                  <p className="fs-6 mb-0">
-                    <strong>Duration:</strong> {duration} weeks
-                  </p>
+
+                {/* Included Inclusions (benefits) */}
+                {benefits.length > 0 && (
+                    <ul className="flex flex-col gap-1.5 mb-6 text-xs text-navy-400 font-light">
+                        {benefits.map((benefit, index) => (
+                            <li key={index} className="flex items-center gap-1.5">
+                                <span className="text-accent-teal font-bold shrink-0">✔</span>
+                                <span className="line-clamp-1">{benefit}</span>
+                            </li>
+                        ))}
+                    </ul>
                 )}
-              </div>
-            )}
 
-            {/* Action Buttons */}
-            {buttons && <div className="mt-4">{buttons}</div>}
+                {/* Details Footer information */}
+                {(targetAudience || duration) && itemType === "room" && (
+                    <div className="flex items-center justify-between text-xs text-navy-400 font-light mb-6 bg-navy-50/50 px-3.5 py-2.5 rounded-xl border border-navy-100/30">
+                        {targetAudience && (
+                            <p>
+                                <span className="font-semibold text-navy-500">Ideal for:</span> {targetAudience}
+                            </p>
+                        )}
+                        {duration && (
+                            <p>
+                                <span className="font-semibold text-navy-500">Min:</span> {duration} night
+                            </p>
+                        )}
+                    </div>
+                )}
 
-            {/* Subscribed Badge */}
-            {subscribed && (
-              <span className="badge bg-warning p-2 float-end mt-2">
-                Already Subscribed!
-              </span>
-            )}
-          </div>
+                {/* Pricing Block */}
+                {(oldPrice !== undefined || effectivePrice !== undefined) && (
+                    <div className="mt-auto pt-4 border-t border-navy-100/40 flex items-end justify-between">
+                        <div>
+                            <span className="text-[10px] text-navy-300 font-medium uppercase tracking-wider block mb-0.5">
+                                {itemType === "room" ? "Rate starting at" : "Price"}
+                            </span>
+                            <div className="flex items-baseline gap-2">
+                                {effectivePrice !== undefined && (
+                                    <span className="text-lg font-extrabold text-accent-teal font-sans">
+                                        ₹{effectivePrice.toLocaleString()}<span className="text-xs font-medium text-navy-400">{priceLabel}</span>
+                                    </span>
+                                )}
+                                {oldPrice !== undefined && (
+                                    <span className="text-xs text-navy-300 line-through font-sans">
+                                        ₹{oldPrice.toLocaleString()}
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+
+                        {/* Extra Discount Tag */}
+                        {oldPrice && effectivePrice && (
+                            <span className="text-[10px] font-bold text-accent-red bg-red-50 border border-red-200/50 px-2 py-0.5 rounded-md">
+                                -{Math.round(((oldPrice - effectivePrice) / oldPrice) * 100)}%
+                            </span>
+                        )}
+                    </div>
+                )}
+
+                {/* Custom Action buttons slot */}
+                {buttons && <div className="mt-4 w-full">{buttons}</div>}
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ItemLong;

@@ -19,7 +19,6 @@ const SubscriptionSlice = createSlice({
             state.value = [...state.value,action.payload];
         },
         removeSubscription : (state,action:PayloadAction<number>)=>{
-            debugger;
             state.value = state.value.filter(val => val != action.payload);
         }
 

@@ -1,0 +1,1800 @@
+{
+  "hotelInfo": {
+    "name": "Grand Azure Hotel",
+    "logo": "✦",
+    "email": "concierge@grandazure.com",
+    "phone": "+1 800 GRAND AZ",
+    "address": "1 Azure Boulevard, Coastal City",
+    "tagline": "Where luxury meets the ocean"
+  },
+  "navbar": [
+    {
+      "title": "Home",
+      "path": "/"
+    },
+    {
+      "title": "Experience",
+      "children": [
+        {
+          "title": "Suites & Rooms",
+          "path": "/rooms"
+        },
+        {
+          "title": "Fine Dining",
+          "path": "/menu"
+        },
+        {
+          "title": "Premium Services",
+          "path": "/services"
+        },
+        {
+          "title": "Hotel Amenities",
+          "path": "/amenities"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "path": "/about"
+    },
+    {
+      "title": "Bookings",
+      "children": [
+        {
+          "title": "Lookup Booking",
+          "path": "/lookup"
+        },
+        {
+          "title": "Guest Reviews",
+          "path": "/reviews"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "path": "/contact"
+    }
+  ],
+  "hero": {
+    "welcome": "Welcome to Luxury",
+    "title": "Grand Azure Hotel",
+    "subtitle": "Experience world-class hospitality, exquisite dining, and unforgettable stays by the sea.",
+    "bullets": [
+      "Premium ocean-view suites",
+      "Award-winning restaurant & bar",
+      "Spa, pool & fitness center"
+    ],
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+  },
+  "offers": {
+    "title": "Summer Escape Package",
+    "highlight": "Save 30% on Stays",
+    "description": "Includes breakfast, spa credit & late checkout",
+    "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600"
+  },
+  "newsletter": {
+    "title": "Stay in the Loop",
+    "subtitle": "Subscribe for exclusive offers and event updates"
+  },
+  "about": {
+    "title": "About Grand Azure",
+    "description": "At Grand Azure Hotel, we redefine luxury hospitality on the coast. Since 2015, we have welcomed over 50,000 guests from around the world, offering premium accommodations, world-class dining, and unforgettable experiences.",
+    "mission": {
+      "title": "Our Mission",
+      "text": "To create exceptional experiences where every guest feels valued, relaxed, and inspired by the beauty around them."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "To be the most beloved coastal destination, setting the standard for sustainable luxury hospitality worldwide."
+    },
+    "heritage": {
+      "title": "Our Heritage",
+      "text": "Built on a historic waterfront site, our hotel blends timeless architecture with modern luxury amenities."
+    },
+    "image": "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=700",
+    "experienceTitle": "The Grand Azure Experience",
+    "experienceList": [
+      {
+        "title": "Arrive in Style",
+        "text": "Complimentary airport transfer for suite guests."
+      },
+      {
+        "title": "Check-In",
+        "text": "Seamless digital or personal concierge check-in."
+      },
+      {
+        "title": "Dine & Relax",
+        "text": "Explore our restaurant, spa, and pool facilities."
+      },
+      {
+        "title": "Explore",
+        "text": "Curated local tours and experiences via our concierge."
+      },
+      {
+        "title": "Depart Refreshed",
+        "text": "Late checkout and loyalty rewards on every stay."
+      }
+    ],
+    "testimonial": {
+      "quote": "Grand Azure exceeded every expectation. The ocean-view suite was breathtaking, the food was incredible, and the staff made us feel like royalty. We can't wait to return!",
+      "author": "Sarah & James — Verified Guest"
+    }
+  },
+  "amenitiesPage": {
+    "title": "Hotel Amenities",
+    "subtitle": "Everything you need for a perfect stay",
+    "list": [
+      {
+        "id": "infinity-pool",
+        "icon": "FaSwimmingPool",
+        "title": "Infinity Pool",
+        "description": "Rooftop infinity pool with panoramic ocean views, open sunrise to sunset.",
+        "image": "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800",
+        "hours": "07:00 AM - 08:00 PM",
+        "location": "14th Floor Rooftop Sky Deck",
+        "overview": "Immerse yourself in our temperature-controlled infinity pool that appears to merge seamlessly with the sparkling ocean horizon. Complete with private rental cabanas, sun lounge chairs, and poolside cocktail service.",
+        "rules": [
+          "Appropriate swimwear is required at all times.",
+          "Children under 12 must be accompanied by an adult.",
+          "No glass containers or bottles near the pool deck.",
+          "Showers are required before pool entry."
+        ]
+      },
+      {
+        "id": "azure-spa",
+        "icon": "FaSpa",
+        "title": "Azure Spa",
+        "description": "Full-service spa with massage therapy, facials, and wellness treatments.",
+        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800",
+        "hours": "09:00 AM - 09:00 PM",
+        "location": "Lower Ground Floor - East Wing",
+        "overview": "Embark on a relaxing wellness journey at the Azure Spa. We offer classic hot stone massages, therapeutic facials, herbal baths, and holistic treatments designed to restore balance to your body and mind.",
+        "rules": [
+          "Please arrive 15 minutes prior to your appointment.",
+          "Reservations must be cancelled at least 4 hours in advance.",
+          "Silent zone: Mobile phones must be kept on silent.",
+          "Minimum age of 16 years for spa entry."
+        ]
+      },
+      {
+        "id": "fitness-center",
+        "icon": "FaDumbbell",
+        "title": "Fitness Center",
+        "description": "24/7 state-of-the-art gym with personal trainers available on request.",
+        "image": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?w=800",
+        "hours": "Open 24 Hours / 7 Days",
+        "location": "3rd Floor Wellness Suite",
+        "overview": "Keep up with your fitness routine while enjoying floor-to-ceiling garden views. Equipped with state-of-the-art cardio decks, free weights, resistance cable machinery, and private personal training support rooms.",
+        "rules": [
+          "Proper athletic wear and closed shoes are mandatory.",
+          "Please wipe down machinery after usage (towels provided).",
+          "Re-rack weights and returns bars after training.",
+          "Max occupancy is capped at 25 concurrent training guests."
+        ]
+      },
+      {
+        "id": "sky-bar",
+        "icon": "FaGlassCheers",
+        "title": "Sky Lounge Bar",
+        "description": "Rooftop bar with craft cocktails, live music, and sunset views.",
+        "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=800",
+        "hours": "05:00 PM - 02:00 AM",
+        "location": "15th Floor Rooftop Penthouse",
+        "overview": "Watch the sunset paint the sea while sipping custom mixology cocktails. Featuring fire pits, velvet lounge sofa booths, live lounge acoustic sets, and small bite platters.",
+        "rules": [
+          "Smart casual dress code (no swimwear or sandals after 7 PM).",
+          "Table reservations highly recommended on weekends.",
+          "Age restriction: 21+ only after 09:00 PM.",
+          "Please notify servers of any food/beverage allergies."
+        ]
+      },
+      {
+        "id": "fine-dining",
+        "icon": "FaUtensils",
+        "title": "Fine Dining",
+        "description": "Award-winning restaurant serving international and local cuisine.",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800",
+        "hours": "12:00 PM - 11:00 PM",
+        "location": "Lobby Level - Main Hall",
+        "overview": "Dine in under glittering crystal chandeliers. Our restaurant features seasonal tasting menus, premium steak cuts, fresh catches of the day, and a curated wine list with over 500 options.",
+        "rules": [
+          "Semi-formal dress code requested.",
+          "Reservations requested for dinner service.",
+          "Kids menus are available upon request.",
+          "Private dining alcoves can be pre-reserved."
+        ]
+      },
+      {
+        "id": "wifi",
+        "icon": "FaWifi",
+        "title": "High-Speed WiFi",
+        "description": "Complimentary fiber-optic WiFi throughout the entire property.",
+        "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800",
+        "hours": "Available 24 Hours",
+        "location": "Property-wide Coverage",
+        "overview": "Stay connected with high-speed fiber-optic wireless networks. Enjoy seamless speed capabilities in your suite, near the pool, in lounges, or inside dining halls.",
+        "rules": [
+          "Use guest portals to log in using room numbers.",
+          "Basic level bandwidth is free; premium tiers can be purchased.",
+          "Complimentary technical assistance via concierge hotline.",
+          "No unauthorized downloads on public subnet access gates."
+        ]
+      },
+      {
+        "id": "parking",
+        "icon": "FaCar",
+        "title": "Valet Parking",
+        "description": "Complimentary valet parking and electric vehicle charging stations.",
+        "image": "https://images.unsplash.com/photo-1506015391300-4802dc74de2e?w=800",
+        "hours": "Available 24 Hours",
+        "location": "Hotel Main Portico Entrada",
+        "overview": "Sleek and secure drop-off/pick-up services. Hand over your vehicle keys at the portico and let our secure attendants handle parking, battery charging, and luggage unloading.",
+        "rules": [
+          "Present your valet ticket stub to request your vehicle.",
+          "Expect 10-15 minutes retrieval delay during checkout peaks.",
+          "Valet service is complimentary for all registered suite guests.",
+          "Electric charging bays require pre-arrival slot reservation."
+        ]
+      },
+      {
+        "id": "concierge",
+        "icon": "FaConciergeBell",
+        "title": "24/7 Concierge",
+        "description": "Personal concierge for reservations, tours, and special requests.",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+        "hours": "Available 24 Hours",
+        "location": "Main Lobby Reception Desk",
+        "overview": "Let us curate your dream coastal itinerary. We coordinate taxi dispatch, local theater tickets, private dining reservations, helicopter tours, and custom luggage shipping.",
+        "rules": [
+          "Advance notices requested for custom tour operations.",
+          "Direct dial 0 from any room telephone to reach desk.",
+          "Gratuity is optional and at the discretion of the guest.",
+          "Shipping items must match standard postal security requirements."
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Ready to Experience Luxury?",
+      "description": "Book your stay and enjoy all amenities included with every reservation.",
+      "image": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=900"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600",
+      "heading": "Deluxe Ocean View Suite",
+      "subType": "King Bed · Balcony · Sea View",
+      "description": "Wake up to panoramic ocean views in our spacious deluxe suite with premium amenities and elegant décor.",
+      "oldPrice": 18999,
+      "newPrice": 14999,
+      "keyPoints": [
+        "Ocean View",
+        "King Size Bed",
+        "Private Balcony",
+        "Mini Bar"
+      ],
+      "benefits": [
+        "Complimentary breakfast",
+        "Spa access",
+        "Late checkout"
+      ],
+      "targetAudience": "Couples & leisure travelers",
+      "duration": 1,
+      "category": "featuredRoom",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Our signature suite offering breathtaking ocean views and luxury comfort.",
+        "keyFactors": [
+          "45 sqm space",
+          "Premium bedding",
+          "Smart TV",
+          "Rain shower"
+        ],
+        "amenities": [
+          "WiFi",
+          "Room service",
+          "Safe",
+          "Coffee maker"
+        ],
+        "approach": [
+          "Book online",
+          "Check-in 2 PM",
+          "Enjoy your stay",
+          "Check-out 11 AM"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "image": "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=600",
+      "heading": "Executive Business Room",
+      "subType": "Queen Bed · Work Desk · City View",
+      "description": "Designed for the modern traveler with ergonomic workspace, high-speed WiFi, and city skyline views.",
+      "oldPrice": 12999,
+      "newPrice": 9999,
+      "keyPoints": [
+        "Work Desk",
+        "High-Speed WiFi",
+        "City View",
+        "Express Checkout"
+      ],
+      "benefits": [
+        "Business lounge access",
+        "Newspaper delivery",
+        "Iron & board"
+      ],
+      "targetAudience": "Business travelers",
+      "duration": 1,
+      "category": "featuredRoom",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Perfect blend of comfort and productivity for business guests.",
+        "keyFactors": [
+          "32 sqm space",
+          "Ergonomic chair",
+          "Multiple outlets",
+          "Blackout curtains"
+        ],
+        "amenities": [
+          "WiFi",
+          "Printer access",
+          "Coffee maker",
+          "Safe"
+        ],
+        "approach": [
+          "Book online",
+          "Early check-in available",
+          "Work comfortably",
+          "Express checkout"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "image": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=600",
+      "heading": "Presidential Penthouse",
+      "subType": "2 Bedrooms · Private Pool · Butler Service",
+      "description": "The ultimate luxury experience with private pool, butler service, and 360° panoramic views.",
+      "oldPrice": 89999,
+      "newPrice": 74999,
+      "keyPoints": [
+        "Private Pool",
+        "Butler Service",
+        "2 Bedrooms",
+        "Panoramic View"
+      ],
+      "benefits": [
+        "Airport transfer",
+        "Champagne welcome",
+        "Private chef on request"
+      ],
+      "targetAudience": "VIP guests & celebrations",
+      "duration": 1,
+      "category": "featuredRoom",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Unparalleled luxury on the top floor with exclusive services.",
+        "keyFactors": [
+          "180 sqm space",
+          "Private terrace",
+          "Jacuzzi",
+          "Dining area"
+        ],
+        "amenities": [
+          "Private pool",
+          "Butler",
+          "Premium bar",
+          "Home theater"
+        ],
+        "approach": [
+          "Contact concierge",
+          "Personalized welcome",
+          "Exclusive experience",
+          "VIP checkout"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "image": "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600",
+      "heading": "Standard Comfort Room",
+      "subType": "Queen Bed · Garden View",
+      "description": "Cozy and affordable room with all essential amenities for a comfortable stay.",
+      "oldPrice": 6999,
+      "newPrice": 4999,
+      "keyPoints": [
+        "Garden View",
+        "Queen Bed",
+        "En-suite Bathroom",
+        "AC"
+      ],
+      "benefits": [
+        "Daily housekeeping",
+        "Complimentary WiFi"
+      ],
+      "targetAudience": "Budget-conscious travelers",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Comfortable and value-packed accommodation.",
+        "keyFactors": [
+          "22 sqm space",
+          "Standard amenities",
+          "Quiet location"
+        ],
+        "amenities": [
+          "WiFi",
+          "TV",
+          "Safe",
+          "Hair dryer"
+        ],
+        "approach": [
+          "Book online",
+          "Standard check-in",
+          "Relax and enjoy"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "image": "https://images.unsplash.com/photo-1590071247000-503672b39549?w=600",
+      "heading": "Family Connecting Rooms",
+      "subType": "2 Queen Beds · Interconnecting Doors",
+      "description": "Spacious connecting rooms perfect for families with children, featuring kid-friendly amenities.",
+      "oldPrice": 15999,
+      "newPrice": 12999,
+      "keyPoints": [
+        "Connecting Rooms",
+        "2 Queen Beds",
+        "Kid Amenities",
+        "Extra Space"
+      ],
+      "benefits": [
+        "Kids welcome kit",
+        "Family dining discount",
+        "Crib on request"
+      ],
+      "targetAudience": "Families with children",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Designed for family comfort with space for everyone.",
+        "keyFactors": [
+          "55 sqm total",
+          "Two bathrooms",
+          "Sofa bed option"
+        ],
+        "amenities": [
+          "WiFi",
+          "Mini fridge",
+          "Games",
+          "Baby cot"
+        ],
+        "approach": [
+          "Book both rooms",
+          "Family check-in",
+          "Enjoy together"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "image": "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600",
+      "heading": "Honeymoon Suite",
+      "subType": "King Bed · Jacuzzi · Rose Petals",
+      "description": "Romantic suite with jacuzzi, candlelit ambiance, and special honeymoon packages.",
+      "oldPrice": 24999,
+      "newPrice": 19999,
+      "keyPoints": [
+        "Jacuzzi",
+        "King Bed",
+        "Romantic Décor",
+        "Champagne"
+      ],
+      "benefits": [
+        "Couples spa session",
+        "Candlelight dinner",
+        "Rose petal turndown"
+      ],
+      "targetAudience": "Honeymooners & couples",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Create unforgettable romantic memories in our honeymoon suite.",
+        "keyFactors": [
+          "40 sqm space",
+          "In-room jacuzzi",
+          "Premium linens"
+        ],
+        "amenities": [
+          "WiFi",
+          "Bluetooth speaker",
+          "Mini bar",
+          "Bathrobes"
+        ],
+        "approach": [
+          "Book honeymoon package",
+          "Special welcome",
+          "Romantic experience"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "image": "https://images.unsplash.com/photo-1568495248636-6432b97bd949?w=600",
+      "heading": "Classic Twin Room",
+      "subType": "2 Twin Beds · Garden View",
+      "description": "Ideal for friends or family, featuring two comfortable twin beds, clean workspace, and view of our private garden.",
+      "oldPrice": 7999,
+      "newPrice": 5999,
+      "keyPoints": [
+        "Twin Beds",
+        "Garden View",
+        "Workspace",
+        "AC"
+      ],
+      "benefits": [
+        "Complimentary breakfast",
+        "Free high-speed WiFi"
+      ],
+      "targetAudience": "Friends & families",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Comfortable room with twin-bed options overlooking green landscape.",
+        "keyFactors": [
+          "28 sqm space",
+          "Dedicated desk",
+          "Spacious vanity"
+        ],
+        "amenities": [
+          "WiFi",
+          "TV",
+          "Safe",
+          "Mini bar"
+        ],
+        "approach": [
+          "Book online",
+          "Standard check-in"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "image": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=600",
+      "heading": "Executive Ocean Vista Suite",
+      "subType": "King Bed · Workspace · Ocean Front",
+      "description": "Elegant suite tailored for corporate leaders, combining front-row ocean panoramas with executive amenities.",
+      "oldPrice": 16999,
+      "newPrice": 12999,
+      "keyPoints": [
+        "Ocean Front",
+        "King Bed",
+        "Lounge Area",
+        "Ergonomic Desk"
+      ],
+      "benefits": [
+        "Airport shuttle",
+        "Executive lounge access",
+        "Espresso machine"
+      ],
+      "targetAudience": "Business executives & couples",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Luxury suite designed with productivity and relaxation in mind.",
+        "keyFactors": [
+          "40 sqm space",
+          "Ergonomic chair",
+          "Premium sound system"
+        ],
+        "amenities": [
+          "WiFi",
+          "Coffee maker",
+          "Luxury toiletries",
+          "Smart TV"
+        ],
+        "approach": [
+          "Book package",
+          "VIP Check-in"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "image": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=600",
+      "heading": "Royal Beachfront Family Penthouse",
+      "subType": "3 Bedrooms · Kitchen · Beach Access",
+      "description": "Immensely spacious three-bedroom beachfront penthouse featuring a complete kitchen, private balcony, and step-out access to the shore.",
+      "oldPrice": 45000,
+      "newPrice": 34999,
+      "keyPoints": [
+        "3 Bedrooms",
+        "Private Beach Path",
+        "Full Kitchen",
+        "Sea View Balcony"
+      ],
+      "benefits": [
+        "Private chef request",
+        "Welcome fruit basket",
+        "Complimentary laundry service"
+      ],
+      "targetAudience": "Large families & groups",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "The pinnacle of family beachfront luxury living.",
+        "keyFactors": [
+          "120 sqm space",
+          "Living room area",
+          "Dining table for 8"
+        ],
+        "amenities": [
+          "WiFi",
+          "Kitchen appliances",
+          "Washing machine",
+          "Premium sound"
+        ],
+        "approach": [
+          "Pre-arrival coordinator service",
+          "Private check-in"
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=600",
+      "heading": "Cozy Solo Cabin",
+      "subType": "Single Bed · Garden Cabin",
+      "description": "Charming, private wooden cabin tucked in the hotel's lush garden paths, perfect for writers and solo travelers seeking quietude.",
+      "oldPrice": 4500,
+      "newPrice": 2999,
+      "keyPoints": [
+        "Single Bed",
+        "Private Deck",
+        "Garden Path",
+        "Nature Surround"
+      ],
+      "benefits": [
+        "Complimentary books",
+        "Morning coffee delivery"
+      ],
+      "targetAudience": "Solo travelers & readers",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "A secluded private sanctuary surrounded by coastal flora.",
+        "keyFactors": [
+          "18 sqm space",
+          "Outdoor reading chair",
+          "Ensuite shower"
+        ],
+        "amenities": [
+          "WiFi",
+          "Coffee dripper",
+          "Compact safe"
+        ],
+        "approach": [
+          "Book solo getaway",
+          "Self check-in option"
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=600",
+      "heading": "Ocean Breeze Balcony Room",
+      "subType": "Queen Bed · Balcony · Shoreline View",
+      "description": "Charming room with a cozy shoreline balcony layout, allowing guests to relax and enjoy the fresh sea breezes.",
+      "oldPrice": 9999,
+      "newPrice": 7999,
+      "keyPoints": [
+        "Shoreline View",
+        "Private Balcony",
+        "Queen Size Bed",
+        "AC"
+      ],
+      "benefits": [
+        "Complimentary breakfast",
+        "Spa discount coupon"
+      ],
+      "targetAudience": "Couples & solo leisure guests",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Relaxing comfort with fresh sea wind right at your bedside.",
+        "keyFactors": [
+          "30 sqm space",
+          "Outdoor table & chairs",
+          "Chic modern bathroom"
+        ],
+        "amenities": [
+          "WiFi",
+          "Room service",
+          "Safe",
+          "Mini fridge"
+        ],
+        "approach": [
+          "Book package",
+          "Standard check-in"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "image": "https://images.unsplash.com/photo-1591088398332-8a7791972843?w=600",
+      "heading": "Presidents Executive Loft",
+      "subType": "Split Level · Skyline View · Lounge Access",
+      "description": "Double-story loft apartment featuring panoramic floor-to-ceiling city views and premium lounge entry privileges.",
+      "oldPrice": 39999,
+      "newPrice": 29999,
+      "keyPoints": [
+        "Split Level",
+        "Skyline View",
+        "Lounge Access",
+        "Floor-to-Ceiling Windows"
+      ],
+      "benefits": [
+        "VIP Airport shuttle",
+        "All-day snacks & drinks in lounge",
+        "Personalized packing assistance"
+      ],
+      "targetAudience": "Business elites & high-end travelers",
+      "duration": 1,
+      "category": "room",
+      "itemType": "room",
+      "hotelDetails": {
+        "overview": "Spacious penthouse loft with double-story floorplan layout.",
+        "keyFactors": [
+          "75 sqm space",
+          "Master bedroom upstairs",
+          "Dedicated workstation"
+        ],
+        "amenities": [
+          "WiFi",
+          "Coffee bar",
+          "Smart control panel",
+          "Deep soaking tub"
+        ],
+        "approach": [
+          "Contact guest relations",
+          "Personal welcome"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600",
+      "heading": "Truffle Arancini",
+      "subType": "Appetizer · Italian",
+      "description": "Crispy risotto balls filled with mozzarella and black truffle, served with marinara dip.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Vegetarian",
+        "Chef's Special",
+        "Crispy"
+      ],
+      "benefits": [
+        "Made fresh to order"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A classic Italian appetizer with a luxurious truffle twist.",
+        "keyFactors": [
+          "4 pieces per serving",
+          "Truffle oil drizzle",
+          "Parmesan crust"
+        ],
+        "approach": [
+          "Order from room service",
+          "Dine in restaurant",
+          "Enjoy with wine"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600",
+      "heading": "Smoked Salmon Canapés",
+      "subType": "Appetizer · Seafood",
+      "description": "Norwegian smoked salmon on blini with crème fraîche, capers, and dill.",
+      "oldPrice": 1099,
+      "newPrice": 899,
+      "keyPoints": [
+        "Premium Salmon",
+        "Gluten-free option",
+        "Light & Fresh"
+      ],
+      "benefits": [
+        "Sourced daily"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Elegant starter perfect for special occasions.",
+        "keyFactors": [
+          "6 canapés",
+          "Fresh dill",
+          "House-made blini"
+        ],
+        "approach": [
+          "Perfect starter",
+          "Pairs with champagne",
+          "Order ahead for events"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
+      "heading": "Garden Fresh Salad",
+      "subType": "Appetizer · Healthy",
+      "description": "Mixed greens with cherry tomatoes, avocado, feta, and honey-mustard vinaigrette.",
+      "oldPrice": 599,
+      "newPrice": 449,
+      "keyPoints": [
+        "Organic Greens",
+        "Vegan Option",
+        "Low Calorie"
+      ],
+      "benefits": [
+        "Farm-to-table ingredients"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Fresh, vibrant salad from our hotel garden.",
+        "keyFactors": [
+          "Seasonal vegetables",
+          "House dressing",
+          "Add protein option"
+        ],
+        "approach": [
+          "Light start to meal",
+          "Customizable toppings"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=600",
+      "heading": "Classic Caesar Salad",
+      "subType": "Appetizer · Organic Romaine",
+      "description": "Crisp organic romaine lettuce tossed in creamy Caesar dressing, garlic sourdough croutons, and shavings of aged Parmesan.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "Fresh Croutons",
+        "Aged Parmesan",
+        "Organic Greens"
+      ],
+      "benefits": [
+        "Add chicken on request"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A classic starter tossed fresh before serving.",
+        "keyFactors": [
+          "House Caesar dressing",
+          "Baked croutons",
+          "Anchovy option"
+        ],
+        "approach": [
+          "Toss fresh",
+          "Perfect light appetizer"
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
+      "heading": "Grilled Wagyu Steak",
+      "subType": "Main Course · Premium",
+      "description": "A5 Wagyu beef grilled to perfection, served with truffle mashed potatoes and red wine jus.",
+      "oldPrice": 4999,
+      "newPrice": 3999,
+      "keyPoints": [
+        "A5 Wagyu",
+        "Medium-rare recommended",
+        "Signature dish"
+      ],
+      "benefits": [
+        "Sommelier wine pairing available"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Our most celebrated main course, a true culinary masterpiece.",
+        "keyFactors": [
+          "250g portion",
+          "Dry-aged 28 days",
+          "Truffle sides"
+        ],
+        "approach": [
+          "Reserve in advance",
+          "Choose doneness",
+          "Enjoy with red wine"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600",
+      "heading": "Wood-Fired Margherita Pizza",
+      "subType": "Main Course · Italian",
+      "description": "Authentic Neapolitan pizza with San Marzano tomatoes, fresh mozzarella, and basil.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Wood-fired oven",
+        "Fresh dough daily",
+        "Classic recipe"
+      ],
+      "benefits": [
+        "Vegetarian"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Traditional pizza baked in our imported Italian oven.",
+        "keyFactors": [
+          "12 inch",
+          "Buffalo mozzarella",
+          "Extra virgin olive oil"
+        ],
+        "approach": [
+          "Dine in or room service",
+          "Add toppings available"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600",
+      "heading": "Lobster Thermidor",
+      "subType": "Main Course · Seafood",
+      "description": "Whole lobster in creamy cognac sauce, gratinated with Gruyère cheese.",
+      "oldPrice": 5999,
+      "newPrice": 4499,
+      "keyPoints": [
+        "Fresh lobster",
+        "French classic",
+        "Table-side prep"
+      ],
+      "benefits": [
+        "Advance order recommended"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A timeless French seafood classic prepared by our executive chef.",
+        "keyFactors": [
+          "600g lobster",
+          "Cognac sauce",
+          "Gratinated finish"
+        ],
+        "approach": [
+          "Order 24hrs ahead",
+          "Special occasion dish"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "image": "https://images.unsplash.com/photo-160313387287-6841037f6169?w=600",
+      "heading": "Thai Green Curry",
+      "subType": "Main Course · Asian Fusion",
+      "description": "Aromatic green curry with tender chicken, bamboo shoots, Thai basil, and jasmine rice.",
+      "oldPrice": 799,
+      "newPrice": 649,
+      "keyPoints": [
+        "Medium spice",
+        "Authentic recipe",
+        "Gluten-free"
+      ],
+      "benefits": [
+        "Vegan option available"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Bold flavors from our Asian fusion kitchen.",
+        "keyFactors": [
+          "House-made paste",
+          "Coconut cream",
+          "Fresh herbs"
+        ],
+        "approach": [
+          "Adjust spice level",
+          "Add extra rice"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600",
+      "heading": "Truffle Lobster Mac & Cheese",
+      "subType": "Main Course · Gourmet Comfort",
+      "description": "Maine lobster claw meat folded in a rich white cheddar, Gruyère, and fontina cheese sauce, laced with shaved black truffle.",
+      "oldPrice": 2499,
+      "newPrice": 1899,
+      "keyPoints": [
+        "Maine Lobster",
+        "Black Truffle",
+        "3 Cheese Blend",
+        "Gourmet Style"
+      ],
+      "benefits": [
+        "Signature room-service favorite"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "The ultimate comfort luxury dish prepared to order.",
+        "keyFactors": [
+          "Rich sauce",
+          "Baked golden crust",
+          "Generous lobster chunks"
+        ],
+        "approach": [
+          "Served steaming hot",
+          "Excellent comfort dining"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600",
+      "heading": "Pan-Seared Seabass",
+      "subType": "Main Course · Oceanside Catch",
+      "description": "Wild caught seabass fillet pan-seared and served with a lemon-herb butter reduction, roasted asparagus, and wild rice.",
+      "oldPrice": 2999,
+      "newPrice": 2499,
+      "keyPoints": [
+        "Wild Seabass",
+        "Lemon-Herb Butter",
+        "Roasted Asparagus",
+        "Wild Rice"
+      ],
+      "benefits": [
+        "Sourced from local docks"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Light, flaky ocean-fresh catch cooked with aromatic herbs.",
+        "keyFactors": [
+          "Seared crispy skin",
+          "Light butter reduction",
+          "Healthy sides"
+        ],
+        "approach": [
+          "Cooked medium",
+          "Excellent with white wine"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600",
+      "heading": "Molten Chocolate Lava Cake",
+      "subType": "Dessert · Signature",
+      "description": "Warm chocolate cake with a flowing center, served with vanilla bean ice cream.",
+      "oldPrice": 599,
+      "newPrice": 499,
+      "keyPoints": [
+        "Warm served",
+        "Belgian chocolate",
+        "Best seller"
+      ],
+      "benefits": [
+        "15 min preparation"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Decadent chocolate dessert that melts in your mouth.",
+        "keyFactors": [
+          "70% dark chocolate",
+          "Vanilla ice cream",
+          "Berry garnish"
+        ],
+        "approach": [
+          "Order with main course",
+          "Perfect ending"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600",
+      "heading": "Tiramisu Classico",
+      "subType": "Dessert · Italian",
+      "description": "Layers of espresso-soaked ladyfingers with mascarpone cream and cocoa dust.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "House-made",
+        "Espresso infused",
+        "Light & creamy"
+      ],
+      "benefits": [
+        "Made daily"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Authentic Italian tiramisu following a generations-old recipe.",
+        "keyFactors": [
+          "Mascarpone cheese",
+          "Italian espresso",
+          "Amaretto hint"
+        ],
+        "approach": [
+          "Perfect with espresso",
+          "Share or solo"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600",
+      "heading": "Fresh Fruit Pavlova",
+      "subType": "Dessert · Light",
+      "description": "Crispy meringue nest topped with whipped cream and seasonal fresh fruits.",
+      "oldPrice": 449,
+      "newPrice": 349,
+      "keyPoints": [
+        "Seasonal fruits",
+        "Light dessert",
+        "Gluten-free"
+      ],
+      "benefits": [
+        "Low sugar option"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A refreshing, airy dessert perfect after a rich meal.",
+        "keyFactors": [
+          "House meringue",
+          "Local fruits",
+          "Passion fruit coulis"
+        ],
+        "approach": [
+          "Seasonal variation",
+          "Great for sharing"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "image": "https://images.unsplash.com/photo-1541795795328-f073b763494e?w=600",
+      "heading": "Gold Leaf Chocolate Mousse",
+      "subType": "Dessert · Decadent Cup",
+      "description": "Silky dark chocolate mousse piped into dark chocolate shells, topped with flakes of edible 24k gold leaf and fresh raspberries.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "24k Gold Leaf",
+        "French Dark Chocolate",
+        "Fresh Raspberries",
+        "Silky Texture"
+      ],
+      "benefits": [
+        "Prepared fresh daily"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A visually stunning and ultra-luxurious chocolate experience.",
+        "keyFactors": [
+          "Premium single origin cocoa",
+          "Pistachio dust accents",
+          "Served chilled"
+        ],
+        "approach": [
+          "Indulgent single cup serving"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600",
+      "heading": "Sunset Mojito",
+      "subType": "Beverage · Cocktail",
+      "description": "Refreshing mojito with fresh mint, lime, rum, and a splash of passion fruit.",
+      "oldPrice": 699,
+      "newPrice": 549,
+      "keyPoints": [
+        "Signature cocktail",
+        "Fresh mint",
+        "Pool bar favorite"
+      ],
+      "benefits": [
+        "Happy hour 5-7 PM"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Our poolside bestseller with a tropical twist.",
+        "keyFactors": [
+          "Premium white rum",
+          "Fresh ingredients",
+          "Crushed ice"
+        ],
+        "approach": [
+          "Order at pool bar",
+          "Happy hour discount"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600",
+      "heading": "Artisan Latte",
+      "subType": "Beverage · Coffee",
+      "description": "Single-origin espresso with steamed oat milk and latte art by our barista.",
+      "oldPrice": 349,
+      "newPrice": 299,
+      "keyPoints": [
+        "Single origin",
+        "Oat milk option",
+        "Latte art"
+      ],
+      "benefits": [
+        "Available 24/7"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Premium coffee from our in-house roastery.",
+        "keyFactors": [
+          "Ethiopian beans",
+          "Barista crafted",
+          "Multiple milk options"
+        ],
+        "approach": [
+          "Lobby café",
+          "Room service",
+          "Takeaway"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600",
+      "heading": "Grand Reserve Wine",
+      "subType": "Beverage · Wine",
+      "description": "Glass of our sommelier-selected reserve red wine from Napa Valley.",
+      "oldPrice": 1299,
+      "newPrice": 999,
+      "keyPoints": [
+        "Napa Valley",
+        "Sommelier pick",
+        "Premium"
+      ],
+      "benefits": [
+        "Wine tasting events weekly"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Carefully curated wine from our 500-bottle cellar.",
+        "keyFactors": [
+          "2019 vintage",
+          "Full-bodied",
+          "Pairs with steak"
+        ],
+        "approach": [
+          "Ask sommelier",
+          "Wine pairing menu"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600",
+      "heading": "Rosewater Lychee Martini",
+      "subType": "Beverage · Signature Cocktail",
+      "description": "Exotic premium cocktail blending triple-distilled vodka, fresh lychee nectar, and a mist of pure organic rosewater.",
+      "oldPrice": 599,
+      "newPrice": 449,
+      "keyPoints": [
+        "Lychee Nectar",
+        "Organic Rosewater",
+        "Premium Vodka",
+        "Chill Served"
+      ],
+      "benefits": [
+        "Happy hour eligible 5-7 PM"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A fragrant, sweet, and elegant cocktail served in a martini glass.",
+        "keyFactors": [
+          "Fresh lychee garnish",
+          "Triple-chilled shaker prep",
+          "Delicate floral fragrance"
+        ],
+        "approach": [
+          "Order at Rooftop Sky Lounge",
+          "Pairs well with desserts"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600",
+      "heading": "Butter Chicken (Murgh Makhani)",
+      "subType": "Main Course · Indian",
+      "description": "Tender chicken tikka simmered in a rich, buttery, spiced tomato-cream gravy. Served with basmati rice.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Spiced Cream Gravy",
+        "Tender Chicken Tikka",
+        "Basmati Rice Included",
+        "Mild Spices"
+      ],
+      "benefits": [
+        "Gluten-free option"
+      ],
+      "duration": 1,
+      "category": "entree",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A beloved Indian classic cooked with home-churned white butter.",
+        "keyFactors": [
+          "Clay-oven tandoor roasted chicken",
+          "Rich tomato gravy base",
+          "Creamy velvet finish"
+        ],
+        "approach": [
+          "Pairs perfectly with Garlic Naan",
+          "Available for room service"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600",
+      "heading": "Paneer Tikka Masala",
+      "subType": "Main Course · Indian Veg",
+      "description": "Chargrilled paneer cottage cheese cubes cooked in a vibrant tomato-onion masala gravy with bell peppers.",
+      "oldPrice": 799,
+      "newPrice": 599,
+      "keyPoints": [
+        "Chargrilled Paneer",
+        "Spiced Masala Gravy",
+        "100% Vegetarian",
+        "Bell Peppers"
+      ],
+      "benefits": [
+        "Pure vegetarian dish"
+      ],
+      "duration": 1,
+      "category": "entree",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A savory vegetarian favorite roasted to perfection in tandoor.",
+        "keyFactors": [
+          "House-made fresh cottage cheese",
+          "Smoky charcoal finish",
+          "Spicy tikka marination"
+        ],
+        "approach": [
+          "Tandoori Roti side pairing",
+          "Specify spice level when ordering"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600",
+      "heading": "Hyderabadi Mutton Biryani",
+      "subType": "Main Course · Rice Specialty",
+      "description": "Layers of long-grain basmati rice and marinated lamb cooked 'Dum' style with saffron, caramelized onions, and fresh mint.",
+      "oldPrice": 1199,
+      "newPrice": 899,
+      "keyPoints": [
+        "Lamb Chops",
+        "Aromatic Saffron Rice",
+        "Dum-Cooked Style",
+        "Raita Side"
+      ],
+      "benefits": [
+        "Traditional clay pot prep"
+      ],
+      "duration": 1,
+      "category": "entree",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A royal signature biryani recipe direct from Nizam kitchens.",
+        "keyFactors": [
+          "Fragrant premium basmati",
+          "Slow steam dum cooked",
+          "Saffron and mint aromatic blend"
+        ],
+        "approach": [
+          "Served with cold cucumber yogurt raita",
+          "Sufficient for sharing"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
+      "heading": "Garlic Naan & Dal Makhani",
+      "subType": "Indian Combo · Vegetarian",
+      "description": "Slow-cooked creamy black lentils (Dal Makhani) served with freshly baked butter garlic naan flatbreads.",
+      "oldPrice": 699,
+      "newPrice": 499,
+      "keyPoints": [
+        "Slow Cooked Lentils",
+        "Tandoori Garlic Naan",
+        "Rich Butter Cream",
+        "Classic Combo"
+      ],
+      "benefits": [
+        "Fresh baked to order"
+      ],
+      "duration": 1,
+      "category": "entree",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Comfort food combo slow-cooked over active charcoal fires for 24 hours.",
+        "keyFactors": [
+          "24 hour slow stew dal",
+          "Fresh tandoor garlic naans",
+          "Butter whipped glaze"
+        ],
+        "approach": [
+          "Great for lunch or dinner",
+          "Sharing side option"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600",
+      "heading": "Gulab Jamun with Rabri",
+      "subType": "Dessert · Indian Sweet",
+      "description": "Warm milk dumplings soaked in rosewater-cardamom syrup, served over thick chilled saffron rabri milk pudding.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "Milk Dumplings",
+        "Rosewater Syrup",
+        "Saffron Rabri",
+        "Warm & Cold Blend"
+      ],
+      "benefits": [
+        "Traditional sweet dessert"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Decadent sweet fusion of warm jamuns and luxury cold rabri milk reduction.",
+        "keyFactors": [
+          "Pistachio flake garnishes",
+          "24-hour reduced saffron milk",
+          "Cardamom infused syrup"
+        ],
+        "approach": [
+          "Best dessert experience to finish tandoori meals"
+        ]
+      }
+    },
+    {
+      "id": 50,
+      "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600",
+      "heading": "Private Yacht Sunset Cruise",
+      "subType": "2 Hours · Champagne · Coastal Tour",
+      "description": "Sail along the coastline during the golden hour on a luxurious private yacht. Complimentary champagne and gourmet appetizers included.",
+      "oldPrice": 12000,
+      "newPrice": 8999,
+      "keyPoints": [
+        "2 Hour Sailing",
+        "Sunset View",
+        "Champagne Included",
+        "Private Yacht"
+      ],
+      "benefits": [
+        "Complimentary champagne",
+        "Appetizer platter",
+        "Professional captain"
+      ],
+      "category": "tour",
+      "itemType": "service",
+      "hotelDetails": {
+        "overview": "Sail in luxury along the beautiful shoreline.",
+        "keyFactors": [
+          "Private group up to 6",
+          "Chilled beverages",
+          "Perfect sunset viewpoint"
+        ],
+        "approach": [
+          "Reserve 24h prior",
+          "Weather dependent"
+        ]
+      }
+    },
+    {
+      "id": 51,
+      "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=600",
+      "heading": "Azure Serenity Spa Package",
+      "subType": "90 Min · Massage · Facial",
+      "description": "Rejuvenate your body and soul with a customized 60-minute hot stone massage followed by a 30-minute organic herbal facial.",
+      "oldPrice": 4999,
+      "newPrice": 3499,
+      "keyPoints": [
+        "90 Minutes",
+        "Hot Stone Massage",
+        "Herbal Facial",
+        "Wellness Drink"
+      ],
+      "benefits": [
+        "Free steam room access",
+        "Organic spa products",
+        "Detox herbal tea"
+      ],
+      "category": "spa",
+      "itemType": "service",
+      "hotelDetails": {
+        "overview": "Total luxury body treatment in a peaceful sanctuary.",
+        "keyFactors": [
+          "Certified therapists",
+          "Relaxation room",
+          "Custom pressure"
+        ],
+        "approach": [
+          "Arrive 15 min early",
+          "Choose massage oils"
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "image": "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=600",
+      "heading": "Premium Airport Transfer",
+      "subType": "Chauffeur Service · Luxury Sedan",
+      "description": "Travel comfortably between the airport and the hotel in a premium luxury sedan. Professional chauffeur and refreshments included.",
+      "oldPrice": 3000,
+      "newPrice": 1999,
+      "keyPoints": [
+        "Luxury Sedan",
+        "Professional Chauffeur",
+        "Water & Snacks",
+        "Flight Tracking"
+      ],
+      "benefits": [
+        "Luggage assistance",
+        "Flight delay tracking",
+        "Free WiFi in car"
+      ],
+      "category": "transfer",
+      "itemType": "service",
+      "hotelDetails": {
+        "overview": "Stress-free private transportation straight to the lobby doors.",
+        "keyFactors": [
+          "Mercedes or BMW class",
+          "Air conditioned",
+          "Flight status monitoring"
+        ],
+        "approach": [
+          "Provide flight details",
+          "Meet & greet at arrivals"
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600",
+      "heading": "Guided Scuba Diving Adventure",
+      "subType": "3 Hours · Certified Instructors · Reef Tour",
+      "description": "Explore the vibrant coral reefs and marine life of the coastal waters with our certified PADI diving instructors. All gear provided.",
+      "oldPrice": 7500,
+      "newPrice": 5999,
+      "keyPoints": [
+        "PADI Instructor",
+        "Full Diving Gear",
+        "Coral Reef Tour",
+        "Boat Ride"
+      ],
+      "benefits": [
+        "Diving equipment rental",
+        "Underwater photos",
+        "Snacks & hydration"
+      ],
+      "category": "tour",
+      "itemType": "service",
+      "hotelDetails": {
+        "overview": "Immerse yourself in spectacular underwater seascapes.",
+        "keyFactors": [
+          "Safety briefing",
+          "Scenic boat launch",
+          "Diverse marine fauna"
+        ],
+        "approach": [
+          "No medical restrictions",
+          "Minimum age 12"
+        ]
+      }
+    },
+    {
+      "id": 54,
+      "image": "https://images.unsplash.com/photo-1527018601619-a508a2be00cd?w=600",
+      "heading": "Luxury In-Room Welcome Pack",
+      "subType": "Champagne · Strawberries · Flowers",
+      "description": "Surprise your loved one upon arrival with a chilled bottle of French champagne, fresh chocolate-dipped strawberries, and a bouquet of seasonal flowers in your room.",
+      "oldPrice": 5000,
+      "newPrice": 3999,
+      "keyPoints": [
+        "French Champagne",
+        "Chocolates & Berries",
+        "Fresh Flowers",
+        "Arrival Ready"
+      ],
+      "benefits": [
+        "Prepared before check-in",
+        "Personalized card option"
+      ],
+      "category": "welcome",
+      "itemType": "service",
+      "hotelDetails": {
+        "overview": "Indulge in a premium romantic setup prepared prior to your arrival.",
+        "keyFactors": [
+          "Premium florist flowers",
+          "Gourmet dipping chocolate",
+          "Chilled champagne bucket"
+        ],
+        "approach": [
+          "Provide arrival time",
+          "Custom message option"
+        ]
+      }
+    }
+  ],
+  "pastBookings": [
+    {
+      "refId": "GA-9821",
+      "otpRoom": "1111",
+      "otpDining": "2222",
+      "date": "2026-06-12",
+      "status": "Completed",
+      "guestName": "John Doe",
+      "email": "john.doe@gmail.com",
+      "total": 31395,
+      "items": [
+        {
+          "name": "Deluxe Ocean View Suite",
+          "itemType": "room",
+          "quantity": 2,
+          "price": 14999,
+          "status": "Checked-Out",
+          "details": {
+            "checkIn": "2026-06-10",
+            "checkOut": "2026-06-12",
+            "adults": 2,
+            "kids": 0
+          }
+        },
+        {
+          "name": "Truffle Arancini",
+          "itemType": "menu",
+          "quantity": 2,
+          "price": 699,
+          "status": "Completed & Delivered",
+          "details": {
+            "diningType": "room-service",
+            "roomNumber": "304"
+          }
+        }
+      ]
+    },
+    {
+      "refId": "GA-7721",
+      "otpRoom": "3333",
+      "otpService": "4444",
+      "date": "2026-06-25",
+      "status": "Confirmed (Upcoming)",
+      "guestName": "Alice Smith",
+      "email": "alice.smith@example.com",
+      "total": 13498,
+      "items": [
+        {
+          "name": "Executive Business Room",
+          "itemType": "room",
+          "quantity": 1,
+          "price": 9999,
+          "status": "Reserved (Future)",
+          "details": {
+            "checkIn": "2026-07-04",
+            "checkOut": "2026-07-05",
+            "adults": 1,
+            "kids": 0
+          }
+        },
+        {
+          "name": "Azure Serenity Spa Package",
+          "itemType": "service",
+          "quantity": 1,
+          "price": 3499,
+          "status": "Booked (Scheduled)",
+          "details": {
+            "bookingDate": "2026-07-04",
+            "bookingTime": "15:00",
+            "specialNotes": "Prefer female therapist if available"
+          }
+        }
+      ]
+    }
+  ],
+  "pastReviews": [
+    {
+      "id": 1,
+      "name": "Alexander Vance",
+      "rating": 5,
+      "category": "room",
+      "date": "2026-06-10",
+      "comment": "The Presidential Penthouse was breathtaking! Outstanding service from our personal butler and a private pool looking out to the harbor. Unforgettable experience."
+    },
+    {
+      "id": 2,
+      "name": "Helena Rostova",
+      "rating": 5,
+      "category": "dining",
+      "date": "2026-06-18",
+      "comment": "The Grilled Wagyu Steak at the restaurant was absolute perfection. Tender, flavorful, and paired beautifully with Napa Valley reserve. Five-star culinary craft."
+    },
+    {
+      "id": 3,
+      "name": "Michael Chang",
+      "rating": 4,
+      "category": "service",
+      "date": "2026-06-22",
+      "comment": "Had an amazing sunset yacht cruise. The shoreline views are incredible. Dock logistics were slightly delayed but captains were exceptionally polite."
+    },
+    {
+      "id": 4,
+      "name": "Sophia G.",
+      "rating": 5,
+      "category": "spa",
+      "date": "2026-06-26",
+      "comment": "Best hot stone massage I've ever had at the Azure Spa. Absolute tranquility and professional therapists. Highly recommend booking a spa package during stay."
+    }
+  ]
+}
