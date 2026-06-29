@@ -11,6 +11,7 @@ import AutocompleteInput from "../Components/Staff/AutocompleteInput";
 import StatsCard from "../Components/Staff/StatsCard";
 import DiningTableCard from "../Components/Staff/DiningTableCard";
 import RoomAssignPanel from "../Components/Staff/RoomAssignPanel";
+import PageQrLinks from "../Components/Staff/PageQrLinks";
 
 /* ─── types & constants ─────────────────────────────────────────── */
 import {
@@ -56,7 +57,7 @@ const QrScanner = () => {
     }, [dataVersion]);
 
     /* ── tabs ─────────────────────────────────────────────────── */
-    const [scannerTab, setScannerTab] = useState<"verify" | "occupancy" | "dining">("verify");
+    const [scannerTab, setScannerTab] = useState<"verify" | "occupancy" | "dining" | "qrlinks">("verify");
 
     /* ── verify tab ──────────────────────────────────────────── */
     const [selectedRefId, setSelectedRefId] = useState("");
@@ -359,6 +360,7 @@ const QrScanner = () => {
                         { key: "verify" as const, label: "🔑 OTP Itinerary Desk" },
                         { key: "occupancy" as const, label: "🏨 Room Occupancy" },
                         { key: "dining" as const, label: "🍽 Dining Allotment" },
+                        { key: "qrlinks" as const, label: "🔗 QR Links" },
                     ]).map(tab => (
                         <button key={tab.key} onClick={() => setScannerTab(tab.key)}
                             className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${scannerTab === tab.key ? "bg-navy-500 text-white shadow-md shadow-navy-500/10" : "bg-white border border-navy-100 hover:bg-navy-50 text-navy-500"}`}>
@@ -492,7 +494,14 @@ const QrScanner = () => {
                         </div>
                     </div>
                 )}
-
+                {/* ──────────────────────────────────────────────────────
+                    TAB X — QR Links
+                ────────────────────────────────────────────────────── */}
+                {scannerTab === "qrlinks" && (
+                    <div className="animate-fade-in">
+                        <PageQrLinks />
+                    </div>
+                )}
                 {/* ════════════════════════════════════════════════
                     TAB 2 — Room Occupancy
                 ════════════════════════════════════════════════ */}
