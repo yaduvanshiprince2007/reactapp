@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import hotelData from "../Data/hotelData.json";
 import {
     FaUser, FaInfoCircle, FaSearch, FaLock, FaHotel,
-    FaUtensils, FaConciergeBell, FaChair, FaPlus, FaPhoneAlt, FaCheck,
+    FaUtensils, FaConciergeBell, FaChair, FaPlus, FaPhoneAlt
 } from "react-icons/fa";
 
 /* ─── shared components ─────────────────────────────────────────── */
@@ -140,12 +140,12 @@ const QrScanner = () => {
                     && item.status !== "Cancelled" && b.status !== "Cancelled by Guest") {
                     setIsRoomUpdate(true);
                     setRoomFormInit({
-                        guestName:    b.guestName,
-                        roomType:     item.name || "Standard Room",
-                        adults:       item.details?.adults ?? 1,
-                        kids:         item.details?.kids ?? 0,
-                        checkIn:      item.details?.checkIn || new Date().toISOString().split("T")[0],
-                        checkOut:     item.details?.checkOut || new Date(Date.now() + 86400000).toISOString().split("T")[0],
+                        guestName: b.guestName,
+                        roomType: item.name || "Standard Room",
+                        adults: item.details?.adults ?? 1,
+                        kids: item.details?.kids ?? 0,
+                        checkIn: item.details?.checkIn || new Date().toISOString().split("T")[0],
+                        checkOut: item.details?.checkOut || new Date(Date.now() + 86400000).toISOString().split("T")[0],
                         specialNotes: item.details?.specialNotes || "",
                     });
                     return;
@@ -307,11 +307,11 @@ const QrScanner = () => {
         });
     });
     const checkedIn = Object.values(occupancyMap).filter(x => x.status === "Checked-In").length;
-    const reserved  = Object.values(occupancyMap).filter(x => x.status === "Reserved (Future)").length;
-    const vacant    = 300 - checkedIn - reserved;
+    const reserved = Object.values(occupancyMap).filter(x => x.status === "Reserved (Future)").length;
+    const vacant = 300 - checkedIn - reserved;
 
-    const hasRooms    = scannedRecord?.items.some(i => i.itemType === "room");
-    const hasDining   = scannedRecord?.items.some(i => i.itemType === "menu");
+    const hasRooms = scannedRecord?.items.some(i => i.itemType === "room");
+    const hasDining = scannedRecord?.items.some(i => i.itemType === "menu");
     const hasServices = scannedRecord?.items.some(i => i.itemType === "service");
 
     /* ── access guard ────────────────────────────────────────── */
@@ -356,9 +356,9 @@ const QrScanner = () => {
                 {/* Tab bar */}
                 <div className="flex items-center gap-2 border-b border-navy-100 pb-4 mb-8 justify-center flex-wrap">
                     {([
-                        { key: "verify"    as const, label: "🔑 OTP Itinerary Desk" },
+                        { key: "verify" as const, label: "🔑 OTP Itinerary Desk" },
                         { key: "occupancy" as const, label: "🏨 Room Occupancy" },
-                        { key: "dining"    as const, label: "🍽 Dining Allotment" },
+                        { key: "dining" as const, label: "🍽 Dining Allotment" },
                     ]).map(tab => (
                         <button key={tab.key} onClick={() => setScannerTab(tab.key)}
                             className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${scannerTab === tab.key ? "bg-navy-500 text-white shadow-md shadow-navy-500/10" : "bg-white border border-navy-100 hover:bg-navy-50 text-navy-500"}`}>
@@ -397,8 +397,8 @@ const QrScanner = () => {
                                     </div>
                                     <div className="bg-navy-50/60 border border-navy-100/10 rounded-2xl p-4 text-[10px] text-navy-400 flex flex-col gap-1.5">
                                         <span className="font-bold text-navy-500 uppercase tracking-widest text-[9px] mb-1">Testing Codes</span>
-                                        {scannedRecord.otpRoom    && <p>🏨 Room OTP:    <strong className="text-gold-600 select-all">{scannedRecord.otpRoom}</strong></p>}
-                                        {scannedRecord.otpDining  && <p>🍽 Dining OTP:  <strong className="text-gold-600 select-all">{scannedRecord.otpDining}</strong></p>}
+                                        {scannedRecord.otpRoom && <p>🏨 Room OTP:    <strong className="text-gold-600 select-all">{scannedRecord.otpRoom}</strong></p>}
+                                        {scannedRecord.otpDining && <p>🍽 Dining OTP:  <strong className="text-gold-600 select-all">{scannedRecord.otpDining}</strong></p>}
                                         {scannedRecord.otpService && <p>🛎 Service OTP: <strong className="text-gold-600 select-all">{scannedRecord.otpService}</strong></p>}
                                     </div>
                                 </div>
@@ -425,8 +425,8 @@ const QrScanner = () => {
                                         {scannedRecord.items.filter(i => i.itemType === "room").map((item, idx) => (
                                             <ItemRow key={idx} item={item} onStatusChange={s => handleMarkItemStatus(scannedRecord.items.indexOf(item), s)}
                                                 allowedTransitions={[
-                                                    { from: "Reserved (Future)", to: "Checked-In",  label: "Check-In" },
-                                                    { from: "Checked-In",        to: "Checked-Out", label: "Check-Out" },
+                                                    { from: "Reserved (Future)", to: "Checked-In", label: "Check-In" },
+                                                    { from: "Checked-In", to: "Checked-Out", label: "Check-Out" },
                                                 ]}
                                             >
                                                 {item.details && (
@@ -445,8 +445,8 @@ const QrScanner = () => {
                                         {scannedRecord.items.filter(i => i.itemType === "menu").map((item, idx) => (
                                             <ItemRow key={idx} item={item} onStatusChange={s => handleMarkItemStatus(scannedRecord.items.indexOf(item), s)}
                                                 allowedTransitions={[
-                                                    { from: "In Progress", to: "Preparing",            label: "Start Prep" },
-                                                    { from: "Preparing",   to: "Completed & Delivered", label: "Mark Delivered" },
+                                                    { from: "In Progress", to: "Preparing", label: "Start Prep" },
+                                                    { from: "Preparing", to: "Completed & Delivered", label: "Mark Delivered" },
                                                     { from: "In Progress", to: "Completed & Delivered", label: "Mark Delivered" },
                                                 ]}
                                             >
@@ -468,8 +468,8 @@ const QrScanner = () => {
                                             <ItemRow key={idx} item={item} onStatusChange={s => handleMarkItemStatus(scannedRecord.items.indexOf(item), s)}
                                                 allowedTransitions={[
                                                     { from: "Booked (Scheduled)", to: "In-Progress", label: "Begin" },
-                                                    { from: "In-Progress",        to: "Completed",   label: "Complete" },
-                                                    { from: "Booked (Scheduled)", to: "Completed",   label: "Complete" },
+                                                    { from: "In-Progress", to: "Completed", label: "Complete" },
+                                                    { from: "Booked (Scheduled)", to: "Completed", label: "Complete" },
                                                 ]}
                                             >
                                                 {item.details && (
@@ -500,9 +500,9 @@ const QrScanner = () => {
                     <div className="animate-fade-in">
                         {/* Stats row */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                            <StatsCard label="Vacant (Available)" value={vacant}    color="teal"  suffix={`/ 300 Rooms`} />
-                            <StatsCard label="Checked-In"         value={checkedIn} color="gold"  suffix="Occupied" />
-                            <StatsCard label="Reserved / Future"  value={reserved}  color="blue"  suffix="Booked" />
+                            <StatsCard label="Vacant (Available)" value={vacant} color="teal" suffix={`/ 300 Rooms`} />
+                            <StatsCard label="Checked-In" value={checkedIn} color="gold" suffix="Occupied" />
+                            <StatsCard label="Reserved / Future" value={reserved} color="blue" suffix="Booked" />
                         </div>
 
                         {/* Floor pills */}
@@ -537,9 +537,9 @@ const QrScanner = () => {
                                         let bg = "bg-teal-50 border-teal-200 text-teal-700 hover:bg-teal-100";
                                         let lbl = "Vacant";
                                         if (occ) {
-                                            if (occ.status === "Checked-In")        { bg = "bg-gold-100 border-gold-300 text-gold-800 hover:bg-gold-200";   lbl = "In"; }
-                                            else if (occ.status === "Checked-Out")  { bg = "bg-slate-100 border-slate-200 text-slate-500 hover:bg-slate-200"; lbl = "Out"; }
-                                            else                                     { bg = "bg-blue-100 border-blue-200 text-blue-800 hover:bg-blue-200";   lbl = "Rsvd"; }
+                                            if (occ.status === "Checked-In") { bg = "bg-gold-100 border-gold-300 text-gold-800 hover:bg-gold-200"; lbl = "In"; }
+                                            else if (occ.status === "Checked-Out") { bg = "bg-slate-100 border-slate-200 text-slate-500 hover:bg-slate-200"; lbl = "Out"; }
+                                            else { bg = "bg-blue-100 border-blue-200 text-blue-800 hover:bg-blue-200"; lbl = "Rsvd"; }
                                         }
                                         return (
                                             <button key={roomStr} onClick={() => handleRoomClick(roomStr)}
@@ -589,10 +589,10 @@ const QrScanner = () => {
                     <div className="animate-fade-in">
                         {/* Stats */}
                         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                            <StatsCard label="Total Tables"    value={TOTAL_DINING_TABLES} color="navy" />
-                            <StatsCard label="Occupied"        value={diningAllotments.length} color="red" />
-                            <StatsCard label="Available"       value={Math.max(0, TOTAL_DINING_TABLES - diningAllotments.length)} color="teal" />
-                            <StatsCard label="Walk-Ins Today"  value={diningAllotments.filter(a => a.isWalkIn).length} color="gold" />
+                            <StatsCard label="Total Tables" value={TOTAL_DINING_TABLES} color="navy" />
+                            <StatsCard label="Occupied" value={diningAllotments.length} color="red" />
+                            <StatsCard label="Available" value={Math.max(0, TOTAL_DINING_TABLES - diningAllotments.length)} color="teal" />
+                            <StatsCard label="Walk-Ins Today" value={diningAllotments.filter(a => a.isWalkIn).length} color="gold" />
                         </div>
 
                         {/* Visual floor map */}
@@ -606,9 +606,8 @@ const QrScanner = () => {
                                     const allot = diningAllotments.find(a => a.tableNumber === tNum);
                                     return (
                                         <div key={tNum} title={allot ? `${allot.guestName} (${allot.covers} covers)` : "Available"}
-                                            className={`flex flex-col items-center justify-center p-2 rounded-xl border text-center transition-all ${
-                                                allot ? (allot.isWalkIn ? "bg-gold-100 border-gold-300 text-gold-800" : "bg-red-100 border-red-200 text-red-800")
-                                                      : "bg-teal-50 border-teal-200 text-teal-700"}`}>
+                                            className={`flex flex-col items-center justify-center p-2 rounded-xl border text-center transition-all ${allot ? (allot.isWalkIn ? "bg-gold-100 border-gold-300 text-gold-800" : "bg-red-100 border-red-200 text-red-800")
+                                                : "bg-teal-50 border-teal-200 text-teal-700"}`}>
                                             <FaChair className="text-[10px] mb-0.5" />
                                             <span className="text-[8px] font-black">{tNum}</span>
                                             {allot && <span className="text-[7px] truncate w-full text-center font-bold mt-0.5">{allot.guestName.split(" ")[0]}</span>}
