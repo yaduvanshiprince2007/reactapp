@@ -22,8 +22,7 @@ const PageQrLinks = () => {
     { name: "Profile", path: "/profile" },
   ];
 
-  const baseUrl =
-    typeof window !== "undefined" ? window.location.origin : "";
+  const BASE_URL = "https://yaduvanshiprince2007.github.io/reactapp";
 
   return (
     <div className="max-w-7xl mx-auto p-6">
@@ -33,7 +32,7 @@ const PageQrLinks = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {pages.map((page) => {
-          const url = `${baseUrl}/#${page.path}`;
+          const url = `${BASE_URL}/#${page.path}`;
 
           return (
             <div
