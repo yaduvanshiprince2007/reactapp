@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { RootState } from "../Redux/store";
 import { allMenu } from "../Redux/Reducers/Plans";
-import ItemLong from "../Components/ItemLongComp/ItemLong";
-import { Link } from "react-router-dom";
 import { addSubscription } from "../Redux/Reducers/Subscriptions";
 import allProduct from "../Data/allProducts";
 import { RoomFoodConfigModal } from "../Components/RoomFoodConfigModal";
+import { ItemGallery } from "../Components/Common/ItemGallery";
 
 const CATEGORIES = [
     { key: "all", label: "All Items" },
@@ -24,9 +23,7 @@ const Menu = () => {
     const deliverTo = searchParams.get("deliverTo");
     const [activeCategory, setActiveCategory] = useState(initialCat);
     const menuItems = useSelector((state: RootState) => state.session.plans.value);
-    const bookingCart = useSelector((state: RootState) => state.local.subscribtions.value);
     const dispatch = useDispatch();
-    const userRole = localStorage.getItem("loggedInUserRole");
 
     // Dining customizer state
     const [configuringFood, setConfiguringFood] = useState<any | null>(null);
@@ -57,7 +54,7 @@ const Menu = () => {
 
     return (
         <section className="pt-36 pb-20 px-6 bg-gradient-to-b from-red-950 via-slate-900 to-navy-950 text-white min-h-screen text-left">
-            <div className="max-w-7xl mx-auto">
+            <div className="mx-auto max-w-6xl">
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-center text-gold-200 mb-2 leading-tight">
                     Restaurant Menu
                 </h1>
@@ -79,7 +76,7 @@ const Menu = () => {
                 )}
 
                 {/* Filter Pills */}
-                <div className="flex flex-wrap items-center justify-center gap-3 mb-12 max-w-2xl mx-auto">
+                <div className="flex flex-wrap items-center justify-center gap-3 mb-8 max-w-2xl mx-auto">
                     {CATEGORIES.map((cat) => (
                         <button
                             key={cat.key}
@@ -94,48 +91,14 @@ const Menu = () => {
                     ))}
                 </div>
 
-                {/* Menu Grid */}
-                <div key={activeCategory} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
-                    {filteredItems.map((item) => (
-                        <div key={item.id} className="text-navy-900 transition-all duration-300 hover:scale-[1.02] hover:-translate-y-1"> {/* Force text dark inside card container */}
-                            <ItemLong
-                                id={item.id}
-                                image={item.image}
-                                heading={item.heading}
-                                subType={item.subType}
-                                oldPrice={item.oldPrice}
-                                effectivePrice={item.newPrice}
-                                itemType="menu"
-                                buttons={
-                                    <div className="flex items-center gap-3 mt-4">
-                                        <Link
-                                            to={`/menu/${item.id}`}
-                                            className="flex-1 inline-flex items-center justify-center border border-navy-200 hover:border-gold-500 hover:bg-gold-50 text-navy-500 hover:text-gold-600 font-semibold px-4 py-2.5 rounded-full text-sm transition-all text-center"
-                                        >
-                                            Details
-                                        </Link>
-                                        {userRole !== "staff" && (
-                                            !bookingCart.includes(item.id) ? (
-                                                <button
-                                                    className="flex-1 inline-flex items-center justify-center bg-gold-500 hover:bg-gold-600 active:scale-95 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all shadow-md shadow-gold-500/10 cursor-pointer"
-                                                    onClick={() => handleOrder(item)}
-                                                >
-                                                    Order
-                                                </button>
-                                            ) : (
-                                                <Link
-                                                    to="/bookings"
-                                                    className="flex-1 inline-flex items-center justify-center bg-accent-teal hover:bg-teal-700 text-white font-semibold px-4 py-2.5 rounded-full text-sm transition-all shadow-md cursor-pointer"
-                                                >
-                                                    In Cart
-                                                </Link>
-                                            )
-                                        )}
-                                    </div>
-                                }
-                            />
-                        </div>
-                    ))}
+                {/* Menu Gallery */}
+                <div key={activeCategory} className="animate-fade-in text-navy-900">
+                    <ItemGallery
+                        items={filteredItems}
+                        itemType="menu"
+                        onCustomise={(item) => handleOrder(item)}
+                        emptyMessage="No gourmet dishes found in this category."
+                    />
                 </div>
             </div>
 

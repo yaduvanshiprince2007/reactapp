@@ -28,6 +28,10 @@
           "path": "/services"
         },
         {
+          "title": "Banquet & Events",
+          "path": "/banquet"
+        },
+        {
           "title": "Hotel Amenities",
           "path": "/amenities"
         }
@@ -49,10 +53,6 @@
           "path": "/reviews"
         }
       ]
-    },
-    {
-      "title": "Contact",
-      "path": "/contact"
     }
   ],
   "hero": {
@@ -64,13 +64,18 @@
       "Award-winning restaurant & bar",
       "Spa, pool & fitness center"
     ],
-    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800"
+    "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800",
+    "cta": {
+      "primary": "Book Your Stay",
+      "secondary": "Explore Amenities"
+    }
   },
   "offers": {
     "title": "Summer Escape Package",
     "highlight": "Save 30% on Stays",
     "description": "Includes breakfast, spa credit & late checkout",
-    "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600"
+    "image": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=600",
+    "terms": "Valid for bookings until August 31, 2026. Minimum 2-night stay required."
   },
   "newsletter": {
     "title": "Stay in the Loop",
@@ -138,7 +143,8 @@
           "Children under 12 must be accompanied by an adult.",
           "No glass containers or bottles near the pool deck.",
           "Showers are required before pool entry."
-        ]
+        ],
+        "price": "Complimentary for hotel guests | Cabana rental: $50/hour"
       },
       {
         "id": "azure-spa",
@@ -154,7 +160,8 @@
           "Reservations must be cancelled at least 4 hours in advance.",
           "Silent zone: Mobile phones must be kept on silent.",
           "Minimum age of 16 years for spa entry."
-        ]
+        ],
+        "price": "Treatments starting from $120 | Packages available"
       },
       {
         "id": "fitness-center",
@@ -170,7 +177,8 @@
           "Please wipe down machinery after usage (towels provided).",
           "Re-rack weights and returns bars after training.",
           "Max occupancy is capped at 25 concurrent training guests."
-        ]
+        ],
+        "price": "Complimentary for hotel guests | Personal trainer: $80/hour"
       },
       {
         "id": "sky-bar",
@@ -186,7 +194,8 @@
           "Table reservations highly recommended on weekends.",
           "Age restriction: 21+ only after 09:00 PM.",
           "Please notify servers of any food/beverage allergies."
-        ]
+        ],
+        "price": "Cocktails from $18 | Happy Hour: 5-7 PM (50% off select drinks)"
       },
       {
         "id": "fine-dining",
@@ -202,7 +211,8 @@
           "Reservations requested for dinner service.",
           "Kids menus are available upon request.",
           "Private dining alcoves can be pre-reserved."
-        ]
+        ],
+        "price": "Mains from $45 | Tasting menu: $120/person (wine pairing extra)"
       },
       {
         "id": "wifi",
@@ -218,7 +228,8 @@
           "Basic level bandwidth is free; premium tiers can be purchased.",
           "Complimentary technical assistance via concierge hotline.",
           "No unauthorized downloads on public subnet access gates."
-        ]
+        ],
+        "price": "Complimentary up to 100 Mbps | Premium: $20/day for 500 Mbps"
       },
       {
         "id": "parking",
@@ -234,7 +245,8 @@
           "Expect 10-15 minutes retrieval delay during checkout peaks.",
           "Valet service is complimentary for all registered suite guests.",
           "Electric charging bays require pre-arrival slot reservation."
-        ]
+        ],
+        "price": "Complimentary valet | EV charging: $15/day"
       },
       {
         "id": "concierge",
@@ -250,7 +262,8 @@
           "Direct dial 0 from any room telephone to reach desk.",
           "Gratuity is optional and at the discretion of the guest.",
           "Shipping items must match standard postal security requirements."
-        ]
+        ],
+        "price": "Complimentary consultation | Tour bookings have separate fees"
       }
     ],
     "cta": {
@@ -260,6 +273,1304 @@
     }
   },
   "products": [
+    {
+      "id": 10,
+      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600",
+      "heading": "Truffle Arancini",
+      "subType": "Appetizer · Italian",
+      "description": "Crispy risotto balls filled with mozzarella and black truffle, served with marinara dip.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Vegetarian",
+        "Chef's Special",
+        "Crispy"
+      ],
+      "benefits": [
+        "Made fresh to order"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A classic Italian appetizer with a luxurious truffle twist.",
+        "keyFactors": [
+          "4 pieces per serving",
+          "Truffle oil drizzle",
+          "Parmesan crust"
+        ],
+        "approach": [
+          "Order from room service",
+          "Dine in restaurant",
+          "Enjoy with wine"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600",
+      "heading": "Smoked Salmon Canapés",
+      "subType": "Appetizer · Seafood",
+      "description": "Norwegian smoked salmon on blini with crème fraîche, capers, and dill.",
+      "oldPrice": 1099,
+      "newPrice": 899,
+      "keyPoints": [
+        "Premium Salmon",
+        "Gluten-free option",
+        "Light & Fresh"
+      ],
+      "benefits": [
+        "Sourced daily"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Elegant starter perfect for special occasions.",
+        "keyFactors": [
+          "6 canapés",
+          "Fresh dill",
+          "House-made blini"
+        ],
+        "approach": [
+          "Perfect starter",
+          "Pairs with champagne",
+          "Order ahead for events"
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
+      "heading": "Garden Fresh Salad",
+      "subType": "Appetizer · Healthy",
+      "description": "Mixed greens with cherry tomatoes, avocado, feta, and honey-mustard vinaigrette.",
+      "oldPrice": 599,
+      "newPrice": 449,
+      "keyPoints": [
+        "Organic Greens",
+        "Vegan Option",
+        "Low Calorie"
+      ],
+      "benefits": [
+        "Farm-to-table ingredients"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Fresh, vibrant salad from our hotel garden.",
+        "keyFactors": [
+          "Seasonal vegetables",
+          "House dressing",
+          "Add protein option"
+        ],
+        "approach": [
+          "Light start to meal",
+          "Customizable toppings"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=600",
+      "heading": "Classic Caesar Salad",
+      "subType": "Appetizer · Organic Romaine",
+      "description": "Crisp organic romaine lettuce tossed in creamy Caesar dressing, garlic sourdough croutons, and shavings of aged Parmesan.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "Fresh Croutons",
+        "Aged Parmesan",
+        "Organic Greens"
+      ],
+      "benefits": [
+        "Add chicken on request"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A classic starter tossed fresh before serving.",
+        "keyFactors": [
+          "House Caesar dressing",
+          "Baked croutons",
+          "Anchovy option"
+        ],
+        "approach": [
+          "Toss fresh",
+          "Perfect light appetizer"
+        ]
+      }
+    },
+    {
+      "id": 60,
+      "image": "https://images.unsplash.com/photo-1625938144755-65320c7b6c8c?w=600",
+      "heading": "Crispy Calamari",
+      "subType": "Appetizer · Seafood",
+      "description": "Lightly battered and fried calamari rings served with zesty marinara sauce and lemon aioli.",
+      "oldPrice": 799,
+      "newPrice": 649,
+      "keyPoints": [
+        "Crispy",
+        "Fresh Calamari",
+        "Two Dips"
+      ],
+      "benefits": [
+        "Perfect sharing starter"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A Mediterranean classic with a crispy golden coating.",
+        "keyFactors": [
+          "Hand-cut rings",
+          "House-made dips",
+          "Lemon wedge"
+        ],
+        "approach": [
+          "Great with drinks",
+          "Shareable portion"
+        ]
+      }
+    },
+    {
+      "id": 61,
+      "image": "https://images.unsplash.com/photo-1571091718760-1e6d38dc1e00?w=600",
+      "heading": "Bruschetta Trio",
+      "subType": "Appetizer · Italian",
+      "description": "Three varieties: classic tomato-basil, roasted red pepper & goat cheese, and mushroom & truffle.",
+      "oldPrice": 699,
+      "newPrice": 549,
+      "keyPoints": [
+        "Three Varieties",
+        "Garlic Toast",
+        "Premium Toppings"
+      ],
+      "benefits": [
+        "Vegetarian-friendly"
+      ],
+      "duration": 1,
+      "category": "appetizer",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A colorful and flavorful starter with something for everyone.",
+        "keyFactors": [
+          "House-baked bread",
+          "Seasonal toppings",
+          "Drizzle of balsamic"
+        ],
+        "approach": [
+          "Perfect tasting platter",
+          "Share with table"
+        ]
+      }
+    },
+    {
+      "id": 62,
+      "image": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?w=600",
+      "heading": "French Onion Soup",
+      "subType": "Soup · French",
+      "description": "Rich beef broth with caramelized onions, topped with toasted baguette and melted Gruyère cheese.",
+      "oldPrice": 599,
+      "newPrice": 499,
+      "keyPoints": [
+        "Caramelized Onions",
+        "Gruyère Cheese",
+        "Classic Recipe"
+      ],
+      "benefits": [
+        "Comfort food favorite"
+      ],
+      "duration": 1,
+      "category": "soup",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A timeless French bistro classic.",
+        "keyFactors": [
+          "Slow-cooked onions",
+          "Rich beef stock",
+          "Baked to perfection"
+        ],
+        "approach": [
+          "Perfect cold-weather starter",
+          "Served with extra cheese"
+        ]
+      }
+    },
+    {
+      "id": 63,
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600",
+      "heading": "Lobster Bisque",
+      "subType": "Soup · Seafood",
+      "description": "Creamy, velvety bisque with chunks of fresh lobster meat, finished with a swirl of cognac cream.",
+      "oldPrice": 899,
+      "newPrice": 749,
+      "keyPoints": [
+        "Lobster Meat",
+        "Creamy Bisque",
+        "Cognac Finish"
+      ],
+      "benefits": [
+        "Premium ingredients"
+      ],
+      "duration": 1,
+      "category": "soup",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A luxurious seafood soup with deep, complex flavors.",
+        "keyFactors": [
+          "Fresh lobster shells",
+          "House-made stock",
+          "Silky texture"
+        ],
+        "approach": [
+          "Elegant starter",
+          "Wine pairing available"
+        ]
+      }
+    },
+    {
+      "id": 64,
+      "image": "https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600",
+      "heading": "Tomato Basil Soup",
+      "subType": "Soup · Vegetarian",
+      "description": "Roasted tomatoes and fresh basil blended to perfection with a touch of cream and served with grilled cheese croutons.",
+      "oldPrice": 399,
+      "newPrice": 299,
+      "keyPoints": [
+        "Roasted Tomatoes",
+        "Fresh Basil",
+        "Creamy"
+      ],
+      "benefits": [
+        "Vegetarian",
+        "Comfort classic"
+      ],
+      "duration": 1,
+      "category": "soup",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Simple, wholesome, and absolutely delicious.",
+        "keyFactors": [
+          "Ripe tomatoes",
+          "House-made croutons",
+          "Parmesan garnish"
+        ],
+        "approach": [
+          "Perfect with sandwich",
+          "Kid-friendly"
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
+      "heading": "Grilled Wagyu Steak",
+      "subType": "Main Course · Premium",
+      "description": "A5 Wagyu beef grilled to perfection, served with truffle mashed potatoes and red wine jus.",
+      "oldPrice": 4999,
+      "newPrice": 3999,
+      "keyPoints": [
+        "A5 Wagyu",
+        "Medium-rare recommended",
+        "Signature dish"
+      ],
+      "benefits": [
+        "Sommelier wine pairing available"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Our most celebrated main course, a true culinary masterpiece.",
+        "keyFactors": [
+          "250g portion",
+          "Dry-aged 28 days",
+          "Truffle sides"
+        ],
+        "approach": [
+          "Reserve in advance",
+          "Choose doneness",
+          "Enjoy with red wine"
+        ]
+      }
+    },
+    {
+      "id": 21,
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600",
+      "heading": "Wood-Fired Margherita Pizza",
+      "subType": "Main Course · Italian",
+      "description": "Authentic Neapolitan pizza with San Marzano tomatoes, fresh mozzarella, and basil.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Wood-fired oven",
+        "Fresh dough daily",
+        "Classic recipe"
+      ],
+      "benefits": [
+        "Vegetarian"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Traditional pizza baked in our imported Italian oven.",
+        "keyFactors": [
+          "12 inch",
+          "Buffalo mozzarella",
+          "Extra virgin olive oil"
+        ],
+        "approach": [
+          "Dine in or room service",
+          "Add toppings available"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600",
+      "heading": "Lobster Thermidor",
+      "subType": "Main Course · Seafood",
+      "description": "Whole lobster in creamy cognac sauce, gratinated with Gruyère cheese.",
+      "oldPrice": 5999,
+      "newPrice": 4499,
+      "keyPoints": [
+        "Fresh lobster",
+        "French classic",
+        "Table-side prep"
+      ],
+      "benefits": [
+        "Advance order recommended"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A timeless French seafood classic prepared by our executive chef.",
+        "keyFactors": [
+          "600g lobster",
+          "Cognac sauce",
+          "Gratinated finish"
+        ],
+        "approach": [
+          "Order 24hrs ahead",
+          "Special occasion dish"
+        ]
+      }
+    },
+    {
+      "id": 23,
+      "image": "https://images.unsplash.com/photo-160313387287-6841037f6169?w=600",
+      "heading": "Thai Green Curry",
+      "subType": "Main Course · Asian Fusion",
+      "description": "Aromatic green curry with tender chicken, bamboo shoots, Thai basil, and jasmine rice.",
+      "oldPrice": 799,
+      "newPrice": 649,
+      "keyPoints": [
+        "Medium spice",
+        "Authentic recipe",
+        "Gluten-free"
+      ],
+      "benefits": [
+        "Vegan option available"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Bold flavors from our Asian fusion kitchen.",
+        "keyFactors": [
+          "House-made paste",
+          "Coconut cream",
+          "Fresh herbs"
+        ],
+        "approach": [
+          "Adjust spice level",
+          "Add extra rice"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600",
+      "heading": "Truffle Lobster Mac & Cheese",
+      "subType": "Main Course · Gourmet Comfort",
+      "description": "Maine lobster claw meat folded in a rich white cheddar, Gruyère, and fontina cheese sauce, laced with shaved black truffle.",
+      "oldPrice": 2499,
+      "newPrice": 1899,
+      "keyPoints": [
+        "Maine Lobster",
+        "Black Truffle",
+        "3 Cheese Blend",
+        "Gourmet Style"
+      ],
+      "benefits": [
+        "Signature room-service favorite"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "The ultimate comfort luxury dish prepared to order.",
+        "keyFactors": [
+          "Rich sauce",
+          "Baked golden crust",
+          "Generous lobster chunks"
+        ],
+        "approach": [
+          "Served steaming hot",
+          "Excellent comfort dining"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600",
+      "heading": "Pan-Seared Seabass",
+      "subType": "Main Course · Oceanside Catch",
+      "description": "Wild caught seabass fillet pan-seared and served with a lemon-herb butter reduction, roasted asparagus, and wild rice.",
+      "oldPrice": 2999,
+      "newPrice": 2499,
+      "keyPoints": [
+        "Wild Seabass",
+        "Lemon-Herb Butter",
+        "Roasted Asparagus",
+        "Wild Rice"
+      ],
+      "benefits": [
+        "Sourced from local docks"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Light, flaky ocean-fresh catch cooked with aromatic herbs.",
+        "keyFactors": [
+          "Seared crispy skin",
+          "Light butter reduction",
+          "Healthy sides"
+        ],
+        "approach": [
+          "Cooked medium",
+          "Excellent with white wine"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600",
+      "heading": "Butter Chicken (Murgh Makhani)",
+      "subType": "Main Course · Indian",
+      "description": "Tender chicken tikka simmered in a rich, buttery, spiced tomato-cream gravy. Served with basmati rice.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Spiced Cream Gravy",
+        "Tender Chicken Tikka",
+        "Basmati Rice Included",
+        "Mild Spices"
+      ],
+      "benefits": [
+        "Gluten-free option"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A beloved Indian classic cooked with home-churned white butter.",
+        "keyFactors": [
+          "Clay-oven tandoor roasted chicken",
+          "Rich tomato gravy base",
+          "Creamy velvet finish"
+        ],
+        "approach": [
+          "Pairs perfectly with Garlic Naan",
+          "Available for room service"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600",
+      "heading": "Paneer Tikka Masala",
+      "subType": "Main Course · Indian Veg",
+      "description": "Chargrilled paneer cottage cheese cubes cooked in a vibrant tomato-onion masala gravy with bell peppers.",
+      "oldPrice": 799,
+      "newPrice": 599,
+      "keyPoints": [
+        "Chargrilled Paneer",
+        "Spiced Masala Gravy",
+        "100% Vegetarian",
+        "Bell Peppers"
+      ],
+      "benefits": [
+        "Pure vegetarian dish"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A savory vegetarian favorite roasted to perfection in tandoor.",
+        "keyFactors": [
+          "House-made fresh cottage cheese",
+          "Smoky charcoal finish",
+          "Spicy tikka marination"
+        ],
+        "approach": [
+          "Tandoori Roti side pairing",
+          "Specify spice level when ordering"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600",
+      "heading": "Hyderabadi Mutton Biryani",
+      "subType": "Main Course · Rice Specialty",
+      "description": "Layers of long-grain basmati rice and marinated lamb cooked 'Dum' style with saffron, caramelized onions, and fresh mint.",
+      "oldPrice": 1199,
+      "newPrice": 899,
+      "keyPoints": [
+        "Lamb Chops",
+        "Aromatic Saffron Rice",
+        "Dum-Cooked Style",
+        "Raita Side"
+      ],
+      "benefits": [
+        "Traditional clay pot prep"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A royal signature biryani recipe direct from Nizam kitchens.",
+        "keyFactors": [
+          "Fragrant premium basmati",
+          "Slow steam dum cooked",
+          "Saffron and mint aromatic blend"
+        ],
+        "approach": [
+          "Served with cold cucumber yogurt raita",
+          "Sufficient for sharing"
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
+      "heading": "Garlic Naan & Dal Makhani",
+      "subType": "Indian Combo · Vegetarian",
+      "description": "Slow-cooked creamy black lentils (Dal Makhani) served with freshly baked butter garlic naan flatbreads.",
+      "oldPrice": 699,
+      "newPrice": 499,
+      "keyPoints": [
+        "Slow Cooked Lentils",
+        "Tandoori Garlic Naan",
+        "Rich Butter Cream",
+        "Classic Combo"
+      ],
+      "benefits": [
+        "Fresh baked to order"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Comfort food combo slow-cooked over active charcoal fires for 24 hours.",
+        "keyFactors": [
+          "24 hour slow stew dal",
+          "Fresh tandoor garlic naans",
+          "Butter whipped glaze"
+        ],
+        "approach": [
+          "Great for lunch or dinner",
+          "Sharing side option"
+        ]
+      }
+    },
+    {
+      "id": 65,
+      "image": "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?w=600",
+      "heading": "Herb-Crusted Rack of Lamb",
+      "subType": "Main Course · Premium Meat",
+      "description": "New Zealand lamb rack with a herb and mustard crust, served with rosemary jus, creamy polenta, and roasted root vegetables.",
+      "oldPrice": 3999,
+      "newPrice": 3299,
+      "keyPoints": [
+        "New Zealand Lamb",
+        "Herb Crust",
+        "Rosemary Jus",
+        "Premium Cut"
+      ],
+      "benefits": [
+        "Served medium-rare as recommended"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A show-stopping main course for meat lovers.",
+        "keyFactors": [
+          "French-trimmed rack",
+          "Creamy polenta base",
+          "Seasonal vegetables"
+        ],
+        "approach": [
+          "Perfect for special occasions",
+          "Wine pairing available"
+        ]
+      }
+    },
+    {
+      "id": 66,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600",
+      "heading": "Classic Beef Burger",
+      "subType": "Main Course · American Classic",
+      "description": "Prime beef patty with aged cheddar, crisp lettuce, tomato, red onion, and house-made smoky BBQ sauce, served with golden fries.",
+      "oldPrice": 799,
+      "newPrice": 649,
+      "keyPoints": [
+        "Prime Beef",
+        "Aged Cheddar",
+        "BBQ Sauce",
+        "Hand-cut Fries"
+      ],
+      "benefits": [
+        "Cooked to your preference"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A gourmet take on the American classic.",
+        "keyFactors": [
+          "Brioche bun",
+          "House-made pickles",
+          "Smoky aioli option"
+        ],
+        "approach": [
+          "Lunch favorite",
+          "Add bacon or avocado for extra"
+        ]
+      }
+    },
+    {
+      "id": 67,
+      "image": "https://images.unsplash.com/photo-1518733057094-95b53143d2a7?w=600",
+      "heading": "Eggs Benedict Royale",
+      "subType": "Main Course · Brunch",
+      "description": "Poached free-range eggs on toasted English muffins with smoked salmon, wilted spinach, and silky hollandaise sauce.",
+      "oldPrice": 699,
+      "newPrice": 549,
+      "keyPoints": [
+        "Free-range Eggs",
+        "Smoked Salmon",
+        "Hollandaise Sauce",
+        "Brunch Classic"
+      ],
+      "benefits": [
+        "Available until 3 PM"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A luxurious brunch favorite with perfect poached eggs.",
+        "keyFactors": [
+          "Freshly made hollandaise",
+          "Premium smoked salmon",
+          "Crispy hash browns on side"
+        ],
+        "approach": [
+          "Perfect weekend brunch",
+          "Coffee pairing recommended"
+        ]
+      }
+    },
+    {
+      "id": 68,
+      "image": "https://images.unsplash.com/photo-1614632537197-38a17061c2dd?w=600",
+      "heading": "Grilled Salmon with Citrus Salsa",
+      "subType": "Main Course · Seafood",
+      "description": "Atlantic salmon fillet grilled to perfection, topped with fresh citrus-avocado salsa, served with quinoa and seasonal greens.",
+      "oldPrice": 1699,
+      "newPrice": 1399,
+      "keyPoints": [
+        "Atlantic Salmon",
+        "Citrus Salsa",
+        "Quinoa",
+        "Healthy Option"
+      ],
+      "benefits": [
+        "High in Omega-3"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A healthy, flavorful seafood dish packed with nutrients.",
+        "keyFactors": [
+          "Skin-on grilled",
+          "Fresh lime dressing",
+          "Superfood sides"
+        ],
+        "approach": [
+          "Light dinner choice",
+          "Gluten-free"
+        ]
+      }
+    },
+    {
+      "id": 69,
+      "image": "https://images.unsplash.com/photo-1544376798-89aa6b82c6cd?w=600",
+      "heading": "Wild Mushroom Risotto",
+      "subType": "Main Course · Vegetarian",
+      "description": "Creamy Arborio rice with a medley of wild mushrooms, finished with truffle oil, parmesan, and fresh parsley.",
+      "oldPrice": 899,
+      "newPrice": 749,
+      "keyPoints": [
+        "Wild Mushrooms",
+        "Truffle Oil",
+        "Creamy Risotto",
+        "Vegetarian"
+      ],
+      "benefits": [
+        "Made to order"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A rich and comforting Italian classic.",
+        "keyFactors": [
+          "Slow-cooked Arborio rice",
+          "Porcini and shiitake mushrooms",
+          "Parmesan reggiano"
+        ],
+        "approach": [
+          "Perfect for vegetarians",
+          "Pair with white wine"
+        ]
+      }
+    },
+    {
+      "id": 70,
+      "image": "https://images.unsplash.com/photo-1617195737496-bc30194e3a19?w=600",
+      "heading": "Seafood Paella",
+      "subType": "Main Course · Spanish",
+      "description": "Saffron-infused rice with prawns, mussels, clams, and squid, cooked in a traditional paella pan with chorizo and bell peppers.",
+      "oldPrice": 2499,
+      "newPrice": 1999,
+      "keyPoints": [
+        "Saffron Rice",
+        "Mixed Seafood",
+        "Chorizo",
+        "Serves 2"
+      ],
+      "benefits": [
+        "Shareable portion"
+      ],
+      "duration": 1,
+      "category": "mainCourse",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A festive Spanish dish perfect for sharing.",
+        "keyFactors": [
+          "Authentic bomba rice",
+          "Fresh seafood",
+          "Socarrat (crispy bottom)"
+        ],
+        "approach": [
+          "Order 30 mins ahead",
+          "Great for groups"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600",
+      "heading": "Molten Chocolate Lava Cake",
+      "subType": "Dessert · Signature",
+      "description": "Warm chocolate cake with a flowing center, served with vanilla bean ice cream.",
+      "oldPrice": 599,
+      "newPrice": 499,
+      "keyPoints": [
+        "Warm served",
+        "Belgian chocolate",
+        "Best seller"
+      ],
+      "benefits": [
+        "15 min preparation"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Decadent chocolate dessert that melts in your mouth.",
+        "keyFactors": [
+          "70% dark chocolate",
+          "Vanilla ice cream",
+          "Berry garnish"
+        ],
+        "approach": [
+          "Order with main course",
+          "Perfect ending"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600",
+      "heading": "Tiramisu Classico",
+      "subType": "Dessert · Italian",
+      "description": "Layers of espresso-soaked ladyfingers with mascarpone cream and cocoa dust.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "House-made",
+        "Espresso infused",
+        "Light & creamy"
+      ],
+      "benefits": [
+        "Made daily"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Authentic Italian tiramisu following a generations-old recipe.",
+        "keyFactors": [
+          "Mascarpone cheese",
+          "Italian espresso",
+          "Amaretto hint"
+        ],
+        "approach": [
+          "Perfect with espresso",
+          "Share or solo"
+        ]
+      }
+    },
+    {
+      "id": 32,
+      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600",
+      "heading": "Fresh Fruit Pavlova",
+      "subType": "Dessert · Light",
+      "description": "Crispy meringue nest topped with whipped cream and seasonal fresh fruits.",
+      "oldPrice": 449,
+      "newPrice": 349,
+      "keyPoints": [
+        "Seasonal fruits",
+        "Light dessert",
+        "Gluten-free"
+      ],
+      "benefits": [
+        "Low sugar option"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A refreshing, airy dessert perfect after a rich meal.",
+        "keyFactors": [
+          "House meringue",
+          "Local fruits",
+          "Passion fruit coulis"
+        ],
+        "approach": [
+          "Seasonal variation",
+          "Great for sharing"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "image": "https://images.unsplash.com/photo-1541795795328-f073b763494e?w=600",
+      "heading": "Gold Leaf Chocolate Mousse",
+      "subType": "Dessert · Decadent Cup",
+      "description": "Silky dark chocolate mousse piped into dark chocolate shells, topped with flakes of edible 24k gold leaf and fresh raspberries.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "24k Gold Leaf",
+        "French Dark Chocolate",
+        "Fresh Raspberries",
+        "Silky Texture"
+      ],
+      "benefits": [
+        "Prepared fresh daily"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A visually stunning and ultra-luxurious chocolate experience.",
+        "keyFactors": [
+          "Premium single origin cocoa",
+          "Pistachio dust accents",
+          "Served chilled"
+        ],
+        "approach": [
+          "Indulgent single cup serving"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600",
+      "heading": "Gulab Jamun with Rabri",
+      "subType": "Dessert · Indian Sweet",
+      "description": "Warm milk dumplings soaked in rosewater-cardamom syrup, served over thick chilled saffron rabri milk pudding.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "Milk Dumplings",
+        "Rosewater Syrup",
+        "Saffron Rabri",
+        "Warm & Cold Blend"
+      ],
+      "benefits": [
+        "Traditional sweet dessert"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Decadent sweet fusion of warm jamuns and luxury cold rabri milk reduction.",
+        "keyFactors": [
+          "Pistachio flake garnishes",
+          "24-hour reduced saffron milk",
+          "Cardamom infused syrup"
+        ],
+        "approach": [
+          "Best dessert experience to finish tandoori meals"
+        ]
+      }
+    },
+    {
+      "id": 71,
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=600",
+      "heading": "Crème Brûlée",
+      "subType": "Dessert · French Classic",
+      "description": "Rich vanilla bean custard with a perfectly caramelized sugar crust, served with fresh berries.",
+      "oldPrice": 499,
+      "newPrice": 399,
+      "keyPoints": [
+        "Vanilla Bean",
+        "Caramelized Crust",
+        "Smooth Custard"
+      ],
+      "benefits": [
+        "Made fresh daily"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A timeless French dessert with a satisfying crack.",
+        "keyFactors": [
+          "Madagascar vanilla",
+          "Torched to order",
+          "Berry compote"
+        ],
+        "approach": [
+          "Classic finish to any meal",
+          "Pairs with dessert wine"
+        ]
+      }
+    },
+    {
+      "id": 72,
+      "image": "https://images.unsplash.com/photo-1559617311-8d5291a4e793?w=600",
+      "heading": "New York Cheesecake",
+      "subType": "Dessert · American Classic",
+      "description": "Creamy, dense cheesecake with a buttery graham cracker crust, topped with your choice of berry compote or chocolate ganache.",
+      "oldPrice": 449,
+      "newPrice": 349,
+      "keyPoints": [
+        "Creamy Texture",
+        "Graham Crust",
+        "Two Sauce Options"
+      ],
+      "benefits": [
+        "Generous portion"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A slice of New York heaven.",
+        "keyFactors": [
+          "Cream cheese rich",
+          "Buttery crust",
+          "House-made toppings"
+        ],
+        "approach": [
+          "Shareable portion",
+          "Coffee companion"
+        ]
+      }
+    },
+    {
+      "id": 73,
+      "image": "https://images.unsplash.com/photo-1587313423881-f1842e0f7f43?w=600",
+      "heading": "Mango & Coconut Panna Cotta",
+      "subType": "Dessert · Tropical",
+      "description": "Silky coconut panna cotta topped with vibrant mango coulis, fresh mango chunks, and toasted coconut flakes.",
+      "oldPrice": 399,
+      "newPrice": 299,
+      "keyPoints": [
+        "Coconut Milk",
+        "Mango Coulis",
+        "Gluten-free"
+      ],
+      "benefits": [
+        "Light and refreshing"
+      ],
+      "duration": 1,
+      "category": "dessert",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A tropical twist on a classic Italian dessert.",
+        "keyFactors": [
+          "Silky smooth texture",
+          "Fresh mango",
+          "Coconut crunch"
+        ],
+        "approach": [
+          "Perfect summer dessert",
+          "Dairy-free option"
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600",
+      "heading": "Sunset Mojito",
+      "subType": "Cocktail",
+      "description": "Refreshing mojito with fresh mint, lime, rum, and a splash of passion fruit.",
+      "oldPrice": 699,
+      "newPrice": 549,
+      "keyPoints": [
+        "Signature cocktail",
+        "Fresh mint",
+        "Pool bar favorite"
+      ],
+      "benefits": [
+        "Happy hour 5-7 PM"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Our poolside bestseller with a tropical twist.",
+        "keyFactors": [
+          "Premium white rum",
+          "Fresh ingredients",
+          "Crushed ice"
+        ],
+        "approach": [
+          "Order at pool bar",
+          "Happy hour discount"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600",
+      "heading": "Artisan Latte",
+      "subType": "Coffee",
+      "description": "Single-origin espresso with steamed oat milk and latte art by our barista.",
+      "oldPrice": 349,
+      "newPrice": 299,
+      "keyPoints": [
+        "Single origin",
+        "Oat milk option",
+        "Latte art"
+      ],
+      "benefits": [
+        "Available 24/7"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Premium coffee from our in-house roastery.",
+        "keyFactors": [
+          "Ethiopian beans",
+          "Barista crafted",
+          "Multiple milk options"
+        ],
+        "approach": [
+          "Lobby café",
+          "Room service",
+          "Takeaway"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600",
+      "heading": "Grand Reserve Wine",
+      "subType": "Wine",
+      "description": "Glass of our sommelier-selected reserve red wine from Napa Valley.",
+      "oldPrice": 1299,
+      "newPrice": 999,
+      "keyPoints": [
+        "Napa Valley",
+        "Sommelier pick",
+        "Premium"
+      ],
+      "benefits": [
+        "Wine tasting events weekly"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "Carefully curated wine from our 500-bottle cellar.",
+        "keyFactors": [
+          "2019 vintage",
+          "Full-bodied",
+          "Pairs with steak"
+        ],
+        "approach": [
+          "Ask sommelier",
+          "Wine pairing menu"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600",
+      "heading": "Rosewater Lychee Martini",
+      "subType": "Signature Cocktail",
+      "description": "Exotic premium cocktail blending triple-distilled vodka, fresh lychee nectar, and a mist of pure organic rosewater.",
+      "oldPrice": 599,
+      "newPrice": 449,
+      "keyPoints": [
+        "Lychee Nectar",
+        "Organic Rosewater",
+        "Premium Vodka",
+        "Chill Served"
+      ],
+      "benefits": [
+        "Happy hour eligible 5-7 PM"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A fragrant, sweet, and elegant cocktail served in a martini glass.",
+        "keyFactors": [
+          "Fresh lychee garnish",
+          "Triple-chilled shaker prep",
+          "Delicate floral fragrance"
+        ],
+        "approach": [
+          "Order at Rooftop Sky Lounge",
+          "Pairs well with desserts"
+        ]
+      }
+    },
+    {
+      "id": 74,
+      "image": "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600",
+      "heading": "Old Fashioned",
+      "subType": "Classic Cocktail",
+      "description": "A timeless blend of bourbon, bitters, sugar, and an orange twist, served over a single large ice cube.",
+      "oldPrice": 749,
+      "newPrice": 599,
+      "keyPoints": [
+        "Bourbon",
+        "Classic Recipe",
+        "Orange Twist"
+      ],
+      "benefits": [
+        "Barrel-aged option available"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "The ultimate classic cocktail for discerning palates.",
+        "keyFactors": [
+          "Premium bourbon",
+          "House-made bitters",
+          "Luxardo cherry"
+        ],
+        "approach": [
+          "Evening sip",
+          "Pairs with cigars"
+        ]
+      }
+    },
+    {
+      "id": 75,
+      "image": "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=600",
+      "heading": "Cucumber & Mint Spritz",
+      "subType": "Non-Alcoholic",
+      "description": "Refreshing blend of fresh cucumber, mint, lime, and sparkling water with a hint of elderflower.",
+      "oldPrice": 299,
+      "newPrice": 249,
+      "keyPoints": [
+        "Non-Alcoholic",
+        "Refreshing",
+        "Elderflower"
+      ],
+      "benefits": [
+        "Zero alcohol"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "A sophisticated alcohol-free refreshment.",
+        "keyFactors": [
+          "Fresh ingredients",
+          "Sparkling finish",
+          "Elegant presentation"
+        ],
+        "approach": [
+          "Perfect for daytime",
+          "Family-friendly"
+        ]
+      }
+    },
+    {
+      "id": 76,
+      "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600",
+      "heading": "Champagne Cocktail",
+      "subType": "Sparkling Cocktail",
+      "description": "Sparkling wine with a sugar cube soaked in Angostura bitters, garnished with a twist of lemon.",
+      "oldPrice": 899,
+      "newPrice": 699,
+      "keyPoints": [
+        "Sparkling Wine",
+        "Bitters",
+        "Classic"
+      ],
+      "benefits": [
+        "Perfect for celebrations"
+      ],
+      "duration": 1,
+      "category": "beverage",
+      "itemType": "menu",
+      "hotelDetails": {
+        "overview": "The ultimate celebratory cocktail.",
+        "keyFactors": [
+          "Premium sparkling wine",
+          "Angostura bitters",
+          "Lemon twist"
+        ],
+        "approach": [
+          "Toasts and celebrations",
+          "Special occasions"
+        ]
+      }
+    },
     {
       "id": 1,
       "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600",
@@ -772,753 +2083,6 @@
       }
     },
     {
-      "id": 10,
-      "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600",
-      "heading": "Truffle Arancini",
-      "subType": "Appetizer · Italian",
-      "description": "Crispy risotto balls filled with mozzarella and black truffle, served with marinara dip.",
-      "oldPrice": 899,
-      "newPrice": 699,
-      "keyPoints": [
-        "Vegetarian",
-        "Chef's Special",
-        "Crispy"
-      ],
-      "benefits": [
-        "Made fresh to order"
-      ],
-      "duration": 1,
-      "category": "appetizer",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A classic Italian appetizer with a luxurious truffle twist.",
-        "keyFactors": [
-          "4 pieces per serving",
-          "Truffle oil drizzle",
-          "Parmesan crust"
-        ],
-        "approach": [
-          "Order from room service",
-          "Dine in restaurant",
-          "Enjoy with wine"
-        ]
-      }
-    },
-    {
-      "id": 11,
-      "image": "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=600",
-      "heading": "Smoked Salmon Canapés",
-      "subType": "Appetizer · Seafood",
-      "description": "Norwegian smoked salmon on blini with crème fraîche, capers, and dill.",
-      "oldPrice": 1099,
-      "newPrice": 899,
-      "keyPoints": [
-        "Premium Salmon",
-        "Gluten-free option",
-        "Light & Fresh"
-      ],
-      "benefits": [
-        "Sourced daily"
-      ],
-      "duration": 1,
-      "category": "appetizer",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Elegant starter perfect for special occasions.",
-        "keyFactors": [
-          "6 canapés",
-          "Fresh dill",
-          "House-made blini"
-        ],
-        "approach": [
-          "Perfect starter",
-          "Pairs with champagne",
-          "Order ahead for events"
-        ]
-      }
-    },
-    {
-      "id": 12,
-      "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600",
-      "heading": "Garden Fresh Salad",
-      "subType": "Appetizer · Healthy",
-      "description": "Mixed greens with cherry tomatoes, avocado, feta, and honey-mustard vinaigrette.",
-      "oldPrice": 599,
-      "newPrice": 449,
-      "keyPoints": [
-        "Organic Greens",
-        "Vegan Option",
-        "Low Calorie"
-      ],
-      "benefits": [
-        "Farm-to-table ingredients"
-      ],
-      "duration": 1,
-      "category": "appetizer",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Fresh, vibrant salad from our hotel garden.",
-        "keyFactors": [
-          "Seasonal vegetables",
-          "House dressing",
-          "Add protein option"
-        ],
-        "approach": [
-          "Light start to meal",
-          "Customizable toppings"
-        ]
-      }
-    },
-    {
-      "id": 16,
-      "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?w=600",
-      "heading": "Classic Caesar Salad",
-      "subType": "Appetizer · Organic Romaine",
-      "description": "Crisp organic romaine lettuce tossed in creamy Caesar dressing, garlic sourdough croutons, and shavings of aged Parmesan.",
-      "oldPrice": 499,
-      "newPrice": 399,
-      "keyPoints": [
-        "Fresh Croutons",
-        "Aged Parmesan",
-        "Organic Greens"
-      ],
-      "benefits": [
-        "Add chicken on request"
-      ],
-      "duration": 1,
-      "category": "appetizer",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A classic starter tossed fresh before serving.",
-        "keyFactors": [
-          "House Caesar dressing",
-          "Baked croutons",
-          "Anchovy option"
-        ],
-        "approach": [
-          "Toss fresh",
-          "Perfect light appetizer"
-        ]
-      }
-    },
-    {
-      "id": 20,
-      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
-      "heading": "Grilled Wagyu Steak",
-      "subType": "Main Course · Premium",
-      "description": "A5 Wagyu beef grilled to perfection, served with truffle mashed potatoes and red wine jus.",
-      "oldPrice": 4999,
-      "newPrice": 3999,
-      "keyPoints": [
-        "A5 Wagyu",
-        "Medium-rare recommended",
-        "Signature dish"
-      ],
-      "benefits": [
-        "Sommelier wine pairing available"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Our most celebrated main course, a true culinary masterpiece.",
-        "keyFactors": [
-          "250g portion",
-          "Dry-aged 28 days",
-          "Truffle sides"
-        ],
-        "approach": [
-          "Reserve in advance",
-          "Choose doneness",
-          "Enjoy with red wine"
-        ]
-      }
-    },
-    {
-      "id": 21,
-      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600",
-      "heading": "Wood-Fired Margherita Pizza",
-      "subType": "Main Course · Italian",
-      "description": "Authentic Neapolitan pizza with San Marzano tomatoes, fresh mozzarella, and basil.",
-      "oldPrice": 899,
-      "newPrice": 699,
-      "keyPoints": [
-        "Wood-fired oven",
-        "Fresh dough daily",
-        "Classic recipe"
-      ],
-      "benefits": [
-        "Vegetarian"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Traditional pizza baked in our imported Italian oven.",
-        "keyFactors": [
-          "12 inch",
-          "Buffalo mozzarella",
-          "Extra virgin olive oil"
-        ],
-        "approach": [
-          "Dine in or room service",
-          "Add toppings available"
-        ]
-      }
-    },
-    {
-      "id": 22,
-      "image": "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=600",
-      "heading": "Lobster Thermidor",
-      "subType": "Main Course · Seafood",
-      "description": "Whole lobster in creamy cognac sauce, gratinated with Gruyère cheese.",
-      "oldPrice": 5999,
-      "newPrice": 4499,
-      "keyPoints": [
-        "Fresh lobster",
-        "French classic",
-        "Table-side prep"
-      ],
-      "benefits": [
-        "Advance order recommended"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A timeless French seafood classic prepared by our executive chef.",
-        "keyFactors": [
-          "600g lobster",
-          "Cognac sauce",
-          "Gratinated finish"
-        ],
-        "approach": [
-          "Order 24hrs ahead",
-          "Special occasion dish"
-        ]
-      }
-    },
-    {
-      "id": 23,
-      "image": "https://images.unsplash.com/photo-160313387287-6841037f6169?w=600",
-      "heading": "Thai Green Curry",
-      "subType": "Main Course · Asian Fusion",
-      "description": "Aromatic green curry with tender chicken, bamboo shoots, Thai basil, and jasmine rice.",
-      "oldPrice": 799,
-      "newPrice": 649,
-      "keyPoints": [
-        "Medium spice",
-        "Authentic recipe",
-        "Gluten-free"
-      ],
-      "benefits": [
-        "Vegan option available"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Bold flavors from our Asian fusion kitchen.",
-        "keyFactors": [
-          "House-made paste",
-          "Coconut cream",
-          "Fresh herbs"
-        ],
-        "approach": [
-          "Adjust spice level",
-          "Add extra rice"
-        ]
-      }
-    },
-    {
-      "id": 24,
-      "image": "https://images.unsplash.com/photo-1543339308-43e59d6b73a6?w=600",
-      "heading": "Truffle Lobster Mac & Cheese",
-      "subType": "Main Course · Gourmet Comfort",
-      "description": "Maine lobster claw meat folded in a rich white cheddar, Gruyère, and fontina cheese sauce, laced with shaved black truffle.",
-      "oldPrice": 2499,
-      "newPrice": 1899,
-      "keyPoints": [
-        "Maine Lobster",
-        "Black Truffle",
-        "3 Cheese Blend",
-        "Gourmet Style"
-      ],
-      "benefits": [
-        "Signature room-service favorite"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "The ultimate comfort luxury dish prepared to order.",
-        "keyFactors": [
-          "Rich sauce",
-          "Baked golden crust",
-          "Generous lobster chunks"
-        ],
-        "approach": [
-          "Served steaming hot",
-          "Excellent comfort dining"
-        ]
-      }
-    },
-    {
-      "id": 25,
-      "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=600",
-      "heading": "Pan-Seared Seabass",
-      "subType": "Main Course · Oceanside Catch",
-      "description": "Wild caught seabass fillet pan-seared and served with a lemon-herb butter reduction, roasted asparagus, and wild rice.",
-      "oldPrice": 2999,
-      "newPrice": 2499,
-      "keyPoints": [
-        "Wild Seabass",
-        "Lemon-Herb Butter",
-        "Roasted Asparagus",
-        "Wild Rice"
-      ],
-      "benefits": [
-        "Sourced from local docks"
-      ],
-      "duration": 1,
-      "category": "mainCourse",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Light, flaky ocean-fresh catch cooked with aromatic herbs.",
-        "keyFactors": [
-          "Seared crispy skin",
-          "Light butter reduction",
-          "Healthy sides"
-        ],
-        "approach": [
-          "Cooked medium",
-          "Excellent with white wine"
-        ]
-      }
-    },
-    {
-      "id": 30,
-      "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600",
-      "heading": "Molten Chocolate Lava Cake",
-      "subType": "Dessert · Signature",
-      "description": "Warm chocolate cake with a flowing center, served with vanilla bean ice cream.",
-      "oldPrice": 599,
-      "newPrice": 499,
-      "keyPoints": [
-        "Warm served",
-        "Belgian chocolate",
-        "Best seller"
-      ],
-      "benefits": [
-        "15 min preparation"
-      ],
-      "duration": 1,
-      "category": "dessert",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Decadent chocolate dessert that melts in your mouth.",
-        "keyFactors": [
-          "70% dark chocolate",
-          "Vanilla ice cream",
-          "Berry garnish"
-        ],
-        "approach": [
-          "Order with main course",
-          "Perfect ending"
-        ]
-      }
-    },
-    {
-      "id": 31,
-      "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600",
-      "heading": "Tiramisu Classico",
-      "subType": "Dessert · Italian",
-      "description": "Layers of espresso-soaked ladyfingers with mascarpone cream and cocoa dust.",
-      "oldPrice": 499,
-      "newPrice": 399,
-      "keyPoints": [
-        "House-made",
-        "Espresso infused",
-        "Light & creamy"
-      ],
-      "benefits": [
-        "Made daily"
-      ],
-      "duration": 1,
-      "category": "dessert",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Authentic Italian tiramisu following a generations-old recipe.",
-        "keyFactors": [
-          "Mascarpone cheese",
-          "Italian espresso",
-          "Amaretto hint"
-        ],
-        "approach": [
-          "Perfect with espresso",
-          "Share or solo"
-        ]
-      }
-    },
-    {
-      "id": 32,
-      "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600",
-      "heading": "Fresh Fruit Pavlova",
-      "subType": "Dessert · Light",
-      "description": "Crispy meringue nest topped with whipped cream and seasonal fresh fruits.",
-      "oldPrice": 449,
-      "newPrice": 349,
-      "keyPoints": [
-        "Seasonal fruits",
-        "Light dessert",
-        "Gluten-free"
-      ],
-      "benefits": [
-        "Low sugar option"
-      ],
-      "duration": 1,
-      "category": "dessert",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A refreshing, airy dessert perfect after a rich meal.",
-        "keyFactors": [
-          "House meringue",
-          "Local fruits",
-          "Passion fruit coulis"
-        ],
-        "approach": [
-          "Seasonal variation",
-          "Great for sharing"
-        ]
-      }
-    },
-    {
-      "id": 33,
-      "image": "https://images.unsplash.com/photo-1541795795328-f073b763494e?w=600",
-      "heading": "Gold Leaf Chocolate Mousse",
-      "subType": "Dessert · Decadent Cup",
-      "description": "Silky dark chocolate mousse piped into dark chocolate shells, topped with flakes of edible 24k gold leaf and fresh raspberries.",
-      "oldPrice": 899,
-      "newPrice": 699,
-      "keyPoints": [
-        "24k Gold Leaf",
-        "French Dark Chocolate",
-        "Fresh Raspberries",
-        "Silky Texture"
-      ],
-      "benefits": [
-        "Prepared fresh daily"
-      ],
-      "duration": 1,
-      "category": "dessert",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A visually stunning and ultra-luxurious chocolate experience.",
-        "keyFactors": [
-          "Premium single origin cocoa",
-          "Pistachio dust accents",
-          "Served chilled"
-        ],
-        "approach": [
-          "Indulgent single cup serving"
-        ]
-      }
-    },
-    {
-      "id": 40,
-      "image": "https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600",
-      "heading": "Sunset Mojito",
-      "subType": "Beverage · Cocktail",
-      "description": "Refreshing mojito with fresh mint, lime, rum, and a splash of passion fruit.",
-      "oldPrice": 699,
-      "newPrice": 549,
-      "keyPoints": [
-        "Signature cocktail",
-        "Fresh mint",
-        "Pool bar favorite"
-      ],
-      "benefits": [
-        "Happy hour 5-7 PM"
-      ],
-      "duration": 1,
-      "category": "beverage",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Our poolside bestseller with a tropical twist.",
-        "keyFactors": [
-          "Premium white rum",
-          "Fresh ingredients",
-          "Crushed ice"
-        ],
-        "approach": [
-          "Order at pool bar",
-          "Happy hour discount"
-        ]
-      }
-    },
-    {
-      "id": 41,
-      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600",
-      "heading": "Artisan Latte",
-      "subType": "Beverage · Coffee",
-      "description": "Single-origin espresso with steamed oat milk and latte art by our barista.",
-      "oldPrice": 349,
-      "newPrice": 299,
-      "keyPoints": [
-        "Single origin",
-        "Oat milk option",
-        "Latte art"
-      ],
-      "benefits": [
-        "Available 24/7"
-      ],
-      "duration": 1,
-      "category": "beverage",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Premium coffee from our in-house roastery.",
-        "keyFactors": [
-          "Ethiopian beans",
-          "Barista crafted",
-          "Multiple milk options"
-        ],
-        "approach": [
-          "Lobby café",
-          "Room service",
-          "Takeaway"
-        ]
-      }
-    },
-    {
-      "id": 42,
-      "image": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600",
-      "heading": "Grand Reserve Wine",
-      "subType": "Beverage · Wine",
-      "description": "Glass of our sommelier-selected reserve red wine from Napa Valley.",
-      "oldPrice": 1299,
-      "newPrice": 999,
-      "keyPoints": [
-        "Napa Valley",
-        "Sommelier pick",
-        "Premium"
-      ],
-      "benefits": [
-        "Wine tasting events weekly"
-      ],
-      "duration": 1,
-      "category": "beverage",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Carefully curated wine from our 500-bottle cellar.",
-        "keyFactors": [
-          "2019 vintage",
-          "Full-bodied",
-          "Pairs with steak"
-        ],
-        "approach": [
-          "Ask sommelier",
-          "Wine pairing menu"
-        ]
-      }
-    },
-    {
-      "id": 43,
-      "image": "https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600",
-      "heading": "Rosewater Lychee Martini",
-      "subType": "Beverage · Signature Cocktail",
-      "description": "Exotic premium cocktail blending triple-distilled vodka, fresh lychee nectar, and a mist of pure organic rosewater.",
-      "oldPrice": 599,
-      "newPrice": 449,
-      "keyPoints": [
-        "Lychee Nectar",
-        "Organic Rosewater",
-        "Premium Vodka",
-        "Chill Served"
-      ],
-      "benefits": [
-        "Happy hour eligible 5-7 PM"
-      ],
-      "duration": 1,
-      "category": "beverage",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A fragrant, sweet, and elegant cocktail served in a martini glass.",
-        "keyFactors": [
-          "Fresh lychee garnish",
-          "Triple-chilled shaker prep",
-          "Delicate floral fragrance"
-        ],
-        "approach": [
-          "Order at Rooftop Sky Lounge",
-          "Pairs well with desserts"
-        ]
-      }
-    },
-    {
-      "id": 26,
-      "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=600",
-      "heading": "Butter Chicken (Murgh Makhani)",
-      "subType": "Main Course · Indian",
-      "description": "Tender chicken tikka simmered in a rich, buttery, spiced tomato-cream gravy. Served with basmati rice.",
-      "oldPrice": 899,
-      "newPrice": 699,
-      "keyPoints": [
-        "Spiced Cream Gravy",
-        "Tender Chicken Tikka",
-        "Basmati Rice Included",
-        "Mild Spices"
-      ],
-      "benefits": [
-        "Gluten-free option"
-      ],
-      "duration": 1,
-      "category": "entree",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A beloved Indian classic cooked with home-churned white butter.",
-        "keyFactors": [
-          "Clay-oven tandoor roasted chicken",
-          "Rich tomato gravy base",
-          "Creamy velvet finish"
-        ],
-        "approach": [
-          "Pairs perfectly with Garlic Naan",
-          "Available for room service"
-        ]
-      }
-    },
-    {
-      "id": 27,
-      "image": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=600",
-      "heading": "Paneer Tikka Masala",
-      "subType": "Main Course · Indian Veg",
-      "description": "Chargrilled paneer cottage cheese cubes cooked in a vibrant tomato-onion masala gravy with bell peppers.",
-      "oldPrice": 799,
-      "newPrice": 599,
-      "keyPoints": [
-        "Chargrilled Paneer",
-        "Spiced Masala Gravy",
-        "100% Vegetarian",
-        "Bell Peppers"
-      ],
-      "benefits": [
-        "Pure vegetarian dish"
-      ],
-      "duration": 1,
-      "category": "entree",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A savory vegetarian favorite roasted to perfection in tandoor.",
-        "keyFactors": [
-          "House-made fresh cottage cheese",
-          "Smoky charcoal finish",
-          "Spicy tikka marination"
-        ],
-        "approach": [
-          "Tandoori Roti side pairing",
-          "Specify spice level when ordering"
-        ]
-      }
-    },
-    {
-      "id": 28,
-      "image": "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=600",
-      "heading": "Hyderabadi Mutton Biryani",
-      "subType": "Main Course · Rice Specialty",
-      "description": "Layers of long-grain basmati rice and marinated lamb cooked 'Dum' style with saffron, caramelized onions, and fresh mint.",
-      "oldPrice": 1199,
-      "newPrice": 899,
-      "keyPoints": [
-        "Lamb Chops",
-        "Aromatic Saffron Rice",
-        "Dum-Cooked Style",
-        "Raita Side"
-      ],
-      "benefits": [
-        "Traditional clay pot prep"
-      ],
-      "duration": 1,
-      "category": "entree",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "A royal signature biryani recipe direct from Nizam kitchens.",
-        "keyFactors": [
-          "Fragrant premium basmati",
-          "Slow steam dum cooked",
-          "Saffron and mint aromatic blend"
-        ],
-        "approach": [
-          "Served with cold cucumber yogurt raita",
-          "Sufficient for sharing"
-        ]
-      }
-    },
-    {
-      "id": 29,
-      "image": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=600",
-      "heading": "Garlic Naan & Dal Makhani",
-      "subType": "Indian Combo · Vegetarian",
-      "description": "Slow-cooked creamy black lentils (Dal Makhani) served with freshly baked butter garlic naan flatbreads.",
-      "oldPrice": 699,
-      "newPrice": 499,
-      "keyPoints": [
-        "Slow Cooked Lentils",
-        "Tandoori Garlic Naan",
-        "Rich Butter Cream",
-        "Classic Combo"
-      ],
-      "benefits": [
-        "Fresh baked to order"
-      ],
-      "duration": 1,
-      "category": "entree",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Comfort food combo slow-cooked over active charcoal fires for 24 hours.",
-        "keyFactors": [
-          "24 hour slow stew dal",
-          "Fresh tandoor garlic naans",
-          "Butter whipped glaze"
-        ],
-        "approach": [
-          "Great for lunch or dinner",
-          "Sharing side option"
-        ]
-      }
-    },
-    {
-      "id": 34,
-      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=600",
-      "heading": "Gulab Jamun with Rabri",
-      "subType": "Dessert · Indian Sweet",
-      "description": "Warm milk dumplings soaked in rosewater-cardamom syrup, served over thick chilled saffron rabri milk pudding.",
-      "oldPrice": 499,
-      "newPrice": 399,
-      "keyPoints": [
-        "Milk Dumplings",
-        "Rosewater Syrup",
-        "Saffron Rabri",
-        "Warm & Cold Blend"
-      ],
-      "benefits": [
-        "Traditional sweet dessert"
-      ],
-      "duration": 1,
-      "category": "dessert",
-      "itemType": "menu",
-      "hotelDetails": {
-        "overview": "Decadent sweet fusion of warm jamuns and luxury cold rabri milk reduction.",
-        "keyFactors": [
-          "Pistachio flake garnishes",
-          "24-hour reduced saffron milk",
-          "Cardamom infused syrup"
-        ],
-        "approach": [
-          "Best dessert experience to finish tandoori meals"
-        ]
-      }
-    },
-    {
       "id": 50,
       "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600",
       "heading": "Private Yacht Sunset Cruise",
@@ -1684,6 +2248,146 @@
         "approach": [
           "Provide arrival time",
           "Custom message option"
+        ]
+      }
+    },
+    {
+      "id": 80,
+      "image": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800",
+      "heading": "Grand Royal Ballroom",
+      "subType": "Max 500 Guests · Luxury AC · Stage and Sound",
+      "description": "A magnificent ballroom styled with towering marble pillars, crystal drop chandeliers, and top-tier sound systems. Ideal for grand weddings, galas, and keynotes.",
+      "oldPrice": 120000,
+      "newPrice": 99999,
+      "keyPoints": [
+        "500 Capacity",
+        "Marble Pillars",
+        "Full Stage and AV Setup",
+        "Luxury AC"
+      ],
+      "benefits": [
+        "Dedicated event manager",
+        "Valet parking included",
+        "Dual green rooms"
+      ],
+      "duration": 1,
+      "category": "ballroom",
+      "itemType": "banquet",
+      "hotelDetails": {
+        "overview": "Our premier indoor venue for large-scale gatherings.",
+        "keyFactors": [
+          "800 sqm pillarless space",
+          "Adjustable LED stage wall",
+          "Pre-function foyer area"
+        ],
+        "approach": [
+          "Advance deposit required",
+          "Catering booked separately"
+        ]
+      }
+    },
+    {
+      "id": 81,
+      "image": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800",
+      "heading": "Azure Oceanfront Lawn",
+      "subType": "Max 800 Guests · Coastal View · Open Air",
+      "description": "Lush manicured beachfront lawns offering stunning views of the sunset. Perfect for outdoor weddings, receptions, and concerts.",
+      "oldPrice": 150000,
+      "newPrice": 129999,
+      "keyPoints": [
+        "800 Capacity",
+        "Ocean View",
+        "Manicured Lawn",
+        "Beach Access"
+      ],
+      "benefits": [
+        "Outdoor lighting rig",
+        "Ocean breeze ambiance",
+        "Power backup generator"
+      ],
+      "duration": 1,
+      "category": "outdoor",
+      "itemType": "banquet",
+      "hotelDetails": {
+        "overview": "A breathtaking coastal setting for functions.",
+        "keyFactors": [
+          "1500 sqm lawn layout",
+          "Coastal breeze exposure",
+          "Elevated stage foundation"
+        ],
+        "approach": [
+          "Permit support included",
+          "Weather backup plan recommended"
+        ]
+      }
+    },
+    {
+      "id": 82,
+      "image": "https://images.unsplash.com/photo-1505232458729-26417ff63cfa?w=800",
+      "heading": "Sapphire Banquet Hall",
+      "subType": "Max 300 Guests · Elegant Seating · Buffet Set",
+      "description": "Sophisticated medium-sized banquet hall with modular dividers. Perfect for corporate banquets, birthdays, and conferences.",
+      "oldPrice": 75000,
+      "newPrice": 59999,
+      "keyPoints": [
+        "300 Capacity",
+        "Modular Dividers",
+        "Connected Buffet Hall",
+        "Modern Interior"
+      ],
+      "benefits": [
+        "Custom table layouts",
+        "In-house sound system",
+        "Dedicated reception desk"
+      ],
+      "duration": 1,
+      "category": "banquet",
+      "itemType": "banquet",
+      "hotelDetails": {
+        "overview": "Modular indoor hall with acoustics.",
+        "keyFactors": [
+          "500 sqm space",
+          "Integrated buffet line",
+          "HD projectors"
+        ],
+        "approach": [
+          "Flexible hourly splits",
+          "Banquet cleanup included"
+        ]
+      }
+    },
+    {
+      "id": 83,
+      "image": "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?w=800",
+      "heading": "Executive Glass Boardroom",
+      "subType": "Max 50 Guests · Skyline View · Corporate Tech",
+      "description": "High-tech meeting room encased in soundproof glass. Equipped with dual 85-inch screens and leather seating.",
+      "oldPrice": 35000,
+      "newPrice": 24999,
+      "keyPoints": [
+        "50 Capacity",
+        "Smart Soundproof Glass",
+        "Dual 85\" Screens",
+        "Ergonomic Seating"
+      ],
+      "benefits": [
+        "High-speed fiber WiFi",
+        "Coffee service",
+        "Interactive whiteboards"
+      ],
+      "duration": 1,
+      "category": "boardroom",
+      "itemType": "banquet",
+      "hotelDetails": {
+        "overview": "Prestige space for meetings and workshops.",
+        "keyFactors": [
+          "100 sqm layout",
+          "Universal plug and play console",
+          "Skyline glass facade"
+        ],
+        "approach": [
+          "Hourly bookings available",
+          "Office materials provided"
         ]
       }
     }

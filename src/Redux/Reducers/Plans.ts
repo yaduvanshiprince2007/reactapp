@@ -25,6 +25,9 @@ const plansSlice = createSlice({
         allServices: (state) => {
             state.value = allProduct.filter(x => x.itemType === "service");
         },
+        allBanquets: (state) => {
+            state.value = allProduct.filter(x => x.itemType === "banquet");
+        },
         menuByCategory: (state, action: { payload: string }) => {
             state.value = allProduct.filter(x => x.category === action.payload);
         },
@@ -41,6 +44,6 @@ const plansSlice = createSlice({
     }
 })
 
-export const { featuredRooms, allRooms, allMenu, allServices, menuByCategory, allItems, newPlans, allPlans } = plansSlice.actions;
+export const { featuredRooms, allRooms, allMenu, allServices, allBanquets, menuByCategory, allItems, newPlans, allPlans } = plansSlice.actions;
 
 export default plansSlice.reducer;

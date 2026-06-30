@@ -12,7 +12,7 @@ interface BookingItem {
     unitPrice: number;
     quantity: number;
     maxQuantity: number;
-    itemType: "room" | "menu" | "service";
+    itemType: "room" | "menu" | "service" | "banquet";
     total: number;
 }
 
@@ -38,6 +38,13 @@ interface BookingDetails {
     bookingDate?: string;
     bookingTime?: string;
     specialNotes?: string;
+    // Banquet & Events
+    seatingStyle?: string;
+    cateringPlan?: string;
+    avRig?: string;
+    decorTheme?: string;
+    expectedGuests?: number;
+    calculatedPrice?: number;
 }
 
 const Checkout: React.FC = () => {
@@ -172,6 +179,20 @@ const Checkout: React.FC = () => {
                         } catch (e) {}
                     }
                     maxQty = 12;
+                } else if (item.itemType === "banquet") {
+                    const details = itemDetails[item.id];
+                    qty = details?.quantity || 1;
+                    const savedConfig = localStorage.getItem(`banquetConfig_${item.id}`);
+                    let calcPrice = unitPrice;
+                    if (savedConfig) {
+                        try {
+                            const parsed = JSON.parse(savedConfig);
+                            qty = details?.quantity || parsed.quantity || 1;
+                            calcPrice = parsed.calculatedPrice ?? calcPrice;
+                        } catch (e) {}
+                    }
+                    unitPrice = calcPrice;
+                    maxQty = 5;
                 }
 
                 return {
@@ -264,6 +285,43 @@ const Checkout: React.FC = () => {
                             specialNotes: ""
                         };
                     }
+                } else if (item.itemType === "banquet") {
+                    const savedConfig = localStorage.getItem(`banquetConfig_${item.planId}`);
+                    if (savedConfig) {
+                        try {
+                            const parsed = JSON.parse(savedConfig);
+                            initialDetails[item.planId] = {
+                                bookingDate: parsed.bookingDate || new Date().toISOString().split('T')[0],
+                                bookingTime: parsed.bookingTime || "10:00",
+                                seatingStyle: parsed.seatingStyle || "Round Tables",
+                                cateringPlan: parsed.cateringPlan || "Bronze Buffet",
+                                avRig: parsed.avRig || "Basic (Mic + Projector)",
+                                decorTheme: parsed.decorTheme || "Royal Gold",
+                                expectedGuests: parsed.expectedGuests || 100,
+                                calculatedPrice: parsed.calculatedPrice
+                            };
+                        } catch (e) {
+                            initialDetails[item.planId] = {
+                                bookingDate: new Date().toISOString().split('T')[0],
+                                bookingTime: "10:00",
+                                seatingStyle: "Round Tables",
+                                cateringPlan: "Bronze Buffet",
+                                avRig: "Basic (Mic + Projector)",
+                                decorTheme: "Royal Gold",
+                                expectedGuests: 100
+                            };
+                        }
+                    } else {
+                        initialDetails[item.planId] = {
+                            bookingDate: new Date().toISOString().split('T')[0],
+                            bookingTime: "10:00",
+                            seatingStyle: "Round Tables",
+                            cateringPlan: "Bronze Buffet",
+                            avRig: "Basic (Mic + Projector)",
+                            decorTheme: "Royal Gold",
+                            expectedGuests: 100
+                        };
+                    }
                 } else {
                     // Menu / Dining
                     const savedConfig = localStorage.getItem(`foodConfig_${item.planId}`);
@@ -326,14 +384,57 @@ const Checkout: React.FC = () => {
     }, [bookedItems]);
 
     const handleUpdateDetails = (id: number, key: keyof BookingDetails, value: any) => {
-        setItemDetails(prev => ({
-            ...prev,
-            [id]: {
+        setItemDetails(prev => {
+            const updatedItem = {
                 ...prev[id],
                 [key]: value
+            };
+
+            const targetItem = bookedItems.find(i => i.planId === id);
+            if (targetItem) {
+                const prefix = targetItem.itemType === "room"
+                    ? "room"
+                    : targetItem.itemType === "menu"
+                    ? "food"
+                    : targetItem.itemType === "service"
+                    ? "service"
+                    : "banquet";
+
+                if (targetItem.itemType === "banquet") {
+                    const basePrice = Number(allProduct.find(p => p.id === id)?.newPrice) || 0;
+                    const catPlan = key === "cateringPlan" ? value : (updatedItem.cateringPlan || "Bronze Buffet");
+                    const av = key === "avRig" ? value : (updatedItem.avRig || "Basic (Mic + Projector)");
+                    const dec = key === "decorTheme" ? value : (updatedItem.decorTheme || "Royal Gold");
+                    const gCount = key === "expectedGuests" ? Number(value) : (updatedItem.expectedGuests || 100);
+
+                    let cateringCost = 1000;
+                    if (catPlan === "Silver Buffet") cateringCost = 1500;
+                    else if (catPlan === "Gold Plated Dinner") cateringCost = 2500;
+                    else if (catPlan === "Platinum Royal Dining") cateringCost = 4000;
+                    else if (catPlan === "None") cateringCost = 0;
+
+                    let avCost = 15000;
+                    if (av === "Premium (DJ + Lighting + Stage)") avCost = 50000;
+                    else if (av === "None") avCost = 0;
+
+                    let decorCost = 30000;
+                    if (dec === "Floral Elegance") decorCost = 45000;
+                    else if (dec === "Oceanic Serenity") decorCost = 25000;
+                    else if (dec === "None") decorCost = 0;
+
+                    updatedItem.calculatedPrice = basePrice + (cateringCost * gCount) + avCost + decorCost;
+                }
+
+                localStorage.setItem(`${prefix}Config_${id}`, JSON.stringify(updatedItem));
             }
-        }));
+
+            return {
+                ...prev,
+                [id]: updatedItem
+            };
+        });
     };
+
 
     const decreaseQty = (id: number) => {
         const item = bookedItems.find(i => i.planId === id);
@@ -347,6 +448,7 @@ const Checkout: React.FC = () => {
             localStorage.removeItem(`roomConfig_${id}`);
             localStorage.removeItem(`foodConfig_${id}`);
             localStorage.removeItem(`serviceConfig_${id}`);
+            localStorage.removeItem(`banquetConfig_${id}`);
         }
     };
 
@@ -363,6 +465,7 @@ const Checkout: React.FC = () => {
         localStorage.removeItem(`roomConfig_${id}`);
         localStorage.removeItem(`foodConfig_${id}`);
         localStorage.removeItem(`serviceConfig_${id}`);
+        localStorage.removeItem(`banquetConfig_${id}`);
     };
 
     const handleConfirmCheckout = () => {
@@ -474,7 +577,7 @@ const Checkout: React.FC = () => {
                                         {item.name}
                                     </h4>
                                     <span className="inline-block text-[9px] font-bold text-gold-600 bg-gold-50 border border-gold-300/10 px-2 py-0.5 rounded mt-1 uppercase">
-                                        {item.itemType === "room" ? "Stay" : item.itemType === "service" ? "Service" : "Dining"}
+                                        {item.itemType === "room" ? "Stay" : item.itemType === "service" ? "Service" : item.itemType === "banquet" ? "Event" : "Dining"}
                                     </span>
 
                                     {/* Department Forms */}
@@ -738,6 +841,99 @@ const Checkout: React.FC = () => {
                                                         rows={2}
                                                         className="w-full bg-white border border-navy-100 rounded-xl px-2.5 py-1.5 text-[10px] focus:outline-none resize-none"
                                                     />
+                                                </div>
+                                            </>
+                                        )}
+
+                                        {item.itemType === "banquet" && (
+                                            <>
+                                                <div className="flex gap-2">
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Event Date</label>
+                                                        <input
+                                                            type="date"
+                                                            value={itemDetails[item.planId]?.bookingDate || ""}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "bookingDate", e.target.value)}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1.5 py-0.5 text-[10px] focus:outline-none"
+                                                        />
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Event Time</label>
+                                                        <input
+                                                            type="time"
+                                                            value={itemDetails[item.planId]?.bookingTime || ""}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "bookingTime", e.target.value)}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1.5 py-0.5 text-[10px] focus:outline-none"
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-2 mt-2">
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Layout Seating</label>
+                                                        <select
+                                                            value={itemDetails[item.planId]?.seatingStyle || "Round Tables"}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "seatingStyle", e.target.value)}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1 py-0.5 text-[10px] focus:outline-none cursor-pointer"
+                                                        >
+                                                            <option>Round Tables</option>
+                                                            <option>Theater Setup</option>
+                                                            <option>Classroom Setup</option>
+                                                            <option>U-Shape Style</option>
+                                                            <option>Cocktail Reception</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Catering Plan</label>
+                                                        <select
+                                                            value={itemDetails[item.planId]?.cateringPlan || "Bronze Buffet"}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "cateringPlan", e.target.value)}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1 py-0.5 text-[10px] focus:outline-none cursor-pointer"
+                                                        >
+                                                            <option>None</option>
+                                                            <option>Bronze Buffet</option>
+                                                            <option>Silver Buffet</option>
+                                                            <option>Gold Plated Dinner</option>
+                                                            <option>Platinum Royal Dining</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className="flex gap-2 mt-2">
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Expected Guests</label>
+                                                        <input
+                                                            type="number"
+                                                            min={20}
+                                                            max={1000}
+                                                            value={itemDetails[item.planId]?.expectedGuests || 100}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "expectedGuests", Number(e.target.value))}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1.5 py-0.5 text-[10px] focus:outline-none"
+                                                        />
+                                                    </div>
+                                                    <div className="flex-1">
+                                                        <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Decor Theme</label>
+                                                        <select
+                                                            value={itemDetails[item.planId]?.decorTheme || "Royal Gold"}
+                                                            onChange={(e) => handleUpdateDetails(item.planId, "decorTheme", e.target.value)}
+                                                            className="w-full bg-white border border-navy-100 rounded px-1 py-0.5 text-[10px] focus:outline-none cursor-pointer"
+                                                        >
+                                                            <option>None</option>
+                                                            <option>Royal Gold</option>
+                                                            <option>Floral Elegance</option>
+                                                            <option>Oceanic Serenity</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className="mt-2">
+                                                    <label className="block text-[9px] uppercase font-bold text-navy-300 mb-0.5">Audio/Visual Setup</label>
+                                                    <select
+                                                        value={itemDetails[item.planId]?.avRig || "Basic (Mic + Projector)"}
+                                                        onChange={(e) => handleUpdateDetails(item.planId, "avRig", e.target.value)}
+                                                        className="w-full bg-white border border-navy-100 rounded px-1 py-0.5 text-[10px] focus:outline-none cursor-pointer"
+                                                    >
+                                                        <option>None</option>
+                                                        <option>Basic (Mic + Projector)</option>
+                                                        <option>Premium (DJ + Lighting + Stage)</option>
+                                                    </select>
                                                 </div>
                                             </>
                                         )}

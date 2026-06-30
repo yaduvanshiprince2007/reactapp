@@ -25,7 +25,7 @@ const PageQrLinks = () => {
   const BASE_URL = "https://yaduvanshiprince2007.github.io/reactapp";
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
+    <div className=" mx-auto p-6">
       <h1 className="text-3xl font-bold text-center mb-8 text-navy-600">
         Public Page QR Codes
       </h1>

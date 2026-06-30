@@ -17,6 +17,7 @@ import AmenityDetail from '../Pages/AmenityDetail'
 import Login from '../Pages/Login'
 import QrScanner from '../Pages/QrScanner'
 import Profile from '../Pages/Profile'
+import Banquet from '../Pages/Banquet'
 
 const AppRoutes = () => {
     const navigate = useNavigate();
@@ -39,6 +40,7 @@ const AppRoutes = () => {
             <Route path='/menu/:id' element={<MenuDetail />} />
             <Route path='/services' element={<Services />} />
             <Route path='/service/:id' element={<ServiceDetail />} />
+            <Route path='/banquet' element={<Banquet />} />
             <Route path='/bookings' element={<Checkout />} />
             <Route path='/about' element={<AboutUs />} />
             <Route path='/amenities' element={<Amenities />} />

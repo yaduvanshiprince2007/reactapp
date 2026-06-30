@@ -12,8 +12,8 @@ export interface AllProductProp {
     benefits?: string[];
     targetAudience?: string;
     duration?: number;
-    category: "featuredRoom" | "room" | "appetizer" | "mainCourse" | "dessert" | "beverage" | "spa" | "tour" | "transfer" | "welcome";
-    itemType: "room" | "menu" | "service";
+    category: "featuredRoom" | "room" | "appetizer" | "mainCourse" | "dessert" | "beverage" | "spa" | "tour" | "transfer" | "welcome" | "ballroom" | "outdoor" | "banquet" | "boardroom";
+    itemType: "room" | "menu" | "service" | "banquet";
     hotelDetails?: {
         overview: string;
         keyFactors: string[];

@@ -7,7 +7,7 @@ const Footer = () => {
 
     return (
         <footer className="bg-navy-950 text-white border-t-4 border-gold-500 pt-16 pb-8 px-6 lg:px-16">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-12">
+            <div className=" mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 mb-12">
                 {/* Column 1: Brand Info */}
                 <div className="md:col-span-5 flex flex-col gap-4">
                     <h3 className="text-xl font-bold tracking-wider uppercase text-gold-500 font-display">
@@ -65,34 +65,34 @@ const Footer = () => {
 
                     {/* Social Media Grid */}
                     <div className="flex items-center gap-3.5 mt-2">
-                        <a 
-                            href="https://facebook.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <a
+                            href="https://facebook.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-9 h-9 rounded-full bg-navy-900 border border-navy-800 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300 text-sm"
                         >
                             <FaFacebookF />
                         </a>
-                        <a 
-                            href="https://twitter.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <a
+                            href="https://twitter.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-9 h-9 rounded-full bg-navy-900 border border-navy-800 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300 text-sm"
                         >
                             <FaTwitter />
                         </a>
-                        <a 
-                            href="https://instagram.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <a
+                            href="https://instagram.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-9 h-9 rounded-full bg-navy-900 border border-navy-800 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300 text-sm"
                         >
                             <FaInstagram />
                         </a>
-                        <a 
-                            href="https://linkedin.com" 
-                            target="_blank" 
-                            rel="noopener noreferrer" 
+                        <a
+                            href="https://linkedin.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-9 h-9 rounded-full bg-navy-900 border border-navy-800 flex items-center justify-center text-gold-500 hover:bg-gold-500 hover:text-white hover:border-gold-500 transition-all duration-300 text-sm"
                         >
                             <FaLinkedin />

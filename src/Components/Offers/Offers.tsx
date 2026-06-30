@@ -8,7 +8,7 @@ const Offers = () => {
 
     return (
         <section className="py-12 px-6 lg:px-16 bg-white">
-            <div className="max-w-7xl mx-auto rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 bg-gradient-to-br from-navy-500 to-navy-700 shadow-xl border border-navy-600/20">
+            <div className=" mx-auto rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 bg-gradient-to-br from-navy-500 to-navy-700 shadow-xl border border-navy-600/20">
                 {/* Image Column */}
                 <div className="lg:col-span-5 relative min-h-[250px] lg:min-h-[360px] overflow-hidden">
                     <img
@@ -26,15 +26,15 @@ const Offers = () => {
                         <span>{title}</span>
                         <BsStars className="text-sm shrink-0" />
                     </div>
-                    
+
                     <h3 className="text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-4">
                         {highlight}
                     </h3>
-                    
+
                     <p className="text-base lg:text-lg text-navy-100/90 font-light leading-relaxed mb-8 max-w-lg">
                         {description}
                     </p>
-                    
+
                     <div>
                         <Link
                             to="/rooms"

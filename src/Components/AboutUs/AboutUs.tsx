@@ -1,21 +1,22 @@
 import hotelData from "../../Data/hotelData.json";
+import Contact from "../../Pages/Contact";
 
 const AboutUs = () => {
-    const { 
-        title, 
-        description, 
-        mission, 
-        vision, 
-        heritage, 
-        image, 
-        experienceTitle, 
-        experienceList, 
-        testimonial 
+    const {
+        title,
+        description,
+        mission,
+        vision,
+        heritage,
+        image,
+        experienceTitle,
+        experienceList,
+        testimonial
     } = hotelData.about;
 
     return (
-        <section className="pt-36 pb-20 px-6 lg:px-16 bg-gradient-to-b from-navy-50/20 via-white to-white">
-            <div className="max-w-7xl mx-auto">
+        <section className="pt-36 pb-20 px-6 lg:px-16 bg-gradient-to-b from-[#fbf9f4] via-[#f7f5ee] to-[#eceae0]">
+            <div className=" mx-auto">
                 {/* Header */}
                 <div className="max-w-3xl mx-auto text-center mb-16">
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-500 mb-6 leading-tight tracking-tight">
@@ -112,6 +113,7 @@ const AboutUs = () => {
                     </blockquote>
                 </div>
             </div>
+            <Contact></Contact>
         </section>
     );
 };

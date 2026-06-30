@@ -1,17 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import hotelData from "../Data/hotelData.json";
 import {
     FaUser, FaInfoCircle, FaSearch, FaLock, FaHotel,
-    FaUtensils, FaConciergeBell, FaChair, FaPlus, FaPhoneAlt
+    FaUtensils, FaConciergeBell, FaGlassCheers, FaPlus, FaTrash, FaCheckCircle, FaBed, FaArrowUp,
 } from "react-icons/fa";
 
 /* ─── shared components ─────────────────────────────────────────── */
-import AutocompleteInput from "../Components/Staff/AutocompleteInput";
 import StatsCard from "../Components/Staff/StatsCard";
-import DiningTableCard from "../Components/Staff/DiningTableCard";
 import RoomAssignPanel from "../Components/Staff/RoomAssignPanel";
+import RoomConfigTab from "../Components/Staff/RoomConfigTab";
+import RoomUpgradeModal from "../Components/Staff/RoomUpgradeModal";
 import PageQrLinks from "../Components/Staff/PageQrLinks";
+import DiningAllotmentTab from "../Components/Staff/DiningAllotmentTab";
+import { BanquetConfigModal } from "../Components/BanquetConfigModal";
 
 /* ─── types & constants ─────────────────────────────────────────── */
 import {
@@ -20,8 +22,13 @@ import {
     type DiningAllotment,
     type RoomAssignForm,
     type RoomDocument,
-    TOTAL_DINING_TABLES,
+    type BanquetBooking,
+    type RoomTypeConfig,
+    type RoomUpgradeRecord,
+    DEFAULT_ROOM_TYPE_CONFIGS,
 } from "../Components/Staff/staffTypes";
+
+import allProducts from "../Data/allProducts";
 
 /* ══════════════════════════════════════════════════════════════════
    Main staff portal component — orchestrates tabs and shared state
@@ -56,8 +63,112 @@ const QrScanner = () => {
         setRoomDocuments(docsRaw ? JSON.parse(docsRaw) : []);
     }, [dataVersion]);
 
+    /* ── banquet state ───────────────────────────────────────── */
+    const [banquetBookings, setBanquetBookings] = useState<BanquetBooking[]>([]);
+    const [showBanquetModal, setShowBanquetModal] = useState(false);
+    const [banquetModalItem, setBanquetModalItem] = useState<typeof allProducts[0] | null>(null);
+
+    useEffect(() => {
+        const raw = localStorage.getItem("staffBanquetBookings");
+        setBanquetBookings(raw ? JSON.parse(raw) : []);
+    }, [dataVersion]);
+
+    const handleStaffBanquetConfirm = (qty: number, guestName?: string) => {
+        if (!banquetModalItem || !guestName) return;
+        const configRaw = localStorage.getItem(`banquetConfig_${banquetModalItem.id}`);
+        const config = configRaw ? JSON.parse(configRaw) : {};
+        const newBooking: BanquetBooking = {
+            id: `BNQ-STAFF-${Date.now()}`,
+            guestName,
+            spaceName: banquetModalItem.heading ?? "",
+            spaceId: banquetModalItem.id,
+            bookingDate: config.bookingDate || "",
+            bookingTime: config.bookingTime || "",
+            expectedGuests: config.expectedGuests || 100,
+            seatingStyle: config.seatingStyle || "Round Tables",
+            cateringPlan: config.cateringPlan || "None",
+            avRig: config.avRig || "None",
+            decorTheme: config.decorTheme || "None",
+            grandTotal: config.calculatedPrice || 0,
+            status: "Confirmed",
+            createdAt: new Date().toISOString(),
+        };
+        const updated = [newBooking, ...banquetBookings];
+        setBanquetBookings(updated);
+        localStorage.setItem("staffBanquetBookings", JSON.stringify(updated));
+        setShowBanquetModal(false);
+        setBanquetModalItem(null);
+        triggerToast(`🎉 Banquet booked for ${guestName} — ${banquetModalItem.heading}`);
+    };
+
+    const handleRemoveBanquetBooking = (id: string) => {
+        const updated = banquetBookings.filter(b => b.id !== id);
+        setBanquetBookings(updated);
+        localStorage.setItem("staffBanquetBookings", JSON.stringify(updated));
+        triggerToast("🗑 Banquet booking removed.");
+    };
+
+    const banquetSpaces = allProducts.filter((p: typeof allProducts[0]) => p.itemType === "banquet");
+
+    /* ── room config state ───────────────────────────────────── */
+    const [roomConfigs, setRoomConfigs] = useState<RoomTypeConfig[]>(() => {
+        const raw = localStorage.getItem("roomTypeConfigs");
+        return raw ? JSON.parse(raw) : DEFAULT_ROOM_TYPE_CONFIGS;
+    });
+
+    const handleRoomConfigsChange = (updated: RoomTypeConfig[]) => {
+        setRoomConfigs(updated);
+        localStorage.setItem("roomTypeConfigs", JSON.stringify(updated));
+        triggerToast("⚙️ Room configuration saved.");
+    };
+
+    /* ── room upgrade state ──────────────────────────────────── */
+    const [upgradeTarget, setUpgradeTarget] = useState<{
+        roomNumber: string; roomType: string; guestName: string; refId: string; nightlyRate: number;
+    } | null>(null);
+
+    const handleUpgradeConfirm = (record: RoomUpgradeRecord) => {
+        /* 1. Persist upgrade log */
+        const raw = localStorage.getItem("roomUpgrades");
+        const log: RoomUpgradeRecord[] = raw ? JSON.parse(raw) : [];
+        log.unshift(record);
+        localStorage.setItem("roomUpgrades", JSON.stringify(log));
+
+        /* 2. Update booking — change roomNumber and roomType in customBookings */
+        const cbRaw = localStorage.getItem("customBookings");
+        const cbList: BookingRecord[] = cbRaw ? JSON.parse(cbRaw) : [];
+        for (const b of cbList) {
+            for (const item of b.items) {
+                if (item.itemType === "room" && item.details?.roomNumber === record.fromRoomNumber) {
+                    item.name = `${record.toRoomType} — Room ${record.toRoomNumber}`;
+                    if (item.details) {
+                        item.details.roomNumber = record.toRoomNumber;
+                        item.details.roomType = record.toRoomType;
+                    }
+                    /* 3. Add charge line if paid */
+                    if (!record.isComplimentary && record.upgradePrice > 0) {
+                        b.total += record.upgradePrice;
+                        b.items.push({
+                            name: `Room Upgrade: ${record.fromRoomType} → ${record.toRoomType}`,
+                            itemType: "service",
+                            quantity: 1,
+                            price: record.upgradePrice,
+                            status: "Completed",
+                        });
+                    }
+                }
+            }
+        }
+        localStorage.setItem("customBookings", JSON.stringify(cbList));
+        bump();
+        setUpgradeTarget(null);
+        triggerToast(record.isComplimentary
+            ? `✦ Complimentary upgrade: Room ${record.toRoomNumber} (${record.toRoomType})`
+            : `⬆️ Room ${record.toRoomNumber} upgraded — ₹${record.upgradePrice.toLocaleString()} charged`);
+    };
+
     /* ── tabs ─────────────────────────────────────────────────── */
-    const [scannerTab, setScannerTab] = useState<"verify" | "occupancy" | "dining" | "qrlinks">("verify");
+    const [scannerTab, setScannerTab] = useState<"verify" | "occupancy" | "dining" | "qrlinks" | "events" | "roomconfig">("verify");
 
     /* ── verify tab ──────────────────────────────────────────── */
     const [selectedRefId, setSelectedRefId] = useState("");
@@ -164,14 +275,27 @@ const QrScanner = () => {
 
     const handleSaveRoomAssign = (form: RoomAssignForm) => {
         if (!activeRoomNumber || !form.guestName.trim()) return;
+        const targetRoomNum = form.roomNumber?.trim() || activeRoomNumber;
         const raw = localStorage.getItem("customBookings");
         const list: BookingRecord[] = raw ? JSON.parse(raw) : [];
         let updated = false;
+
         for (const b of list) {
             for (const item of b.items) {
                 if (item.itemType === "room" && item.details?.roomNumber === activeRoomNumber) {
                     b.guestName = form.guestName.trim();
-                    if (item.details) Object.assign(item.details, { adults: form.adults, kids: form.kids, checkIn: form.checkIn, checkOut: form.checkOut, specialNotes: form.specialNotes });
+                    item.name = `${form.roomType} — Room ${targetRoomNum}`;
+                    if (item.details) {
+                        Object.assign(item.details, {
+                            roomNumber: targetRoomNum,
+                            roomType: form.roomType,
+                            adults: form.adults,
+                            kids: form.kids,
+                            checkIn: form.checkIn,
+                            checkOut: form.checkOut,
+                            specialNotes: form.specialNotes
+                        });
+                    }
                     updated = true;
                 }
             }
@@ -179,10 +303,19 @@ const QrScanner = () => {
         if (!updated) {
             const byName = list.find(b => b.guestName.toLowerCase() === form.guestName.trim().toLowerCase());
             if (byName) {
-                const slot = byName.items.find(i => i.itemType === "room" && !i.details?.roomNumber);
+                const slot = byName.items.find(i => i.itemType === "room" && (!i.details?.roomNumber || i.details?.roomNumber === activeRoomNumber));
                 if (slot) {
                     if (!slot.details) slot.details = {};
-                    Object.assign(slot.details, { roomNumber: activeRoomNumber, adults: form.adults, kids: form.kids, checkIn: form.checkIn, checkOut: form.checkOut, specialNotes: form.specialNotes });
+                    slot.name = `${form.roomType} — Room ${targetRoomNum}`;
+                    Object.assign(slot.details, {
+                        roomNumber: targetRoomNum,
+                        roomType: form.roomType,
+                        adults: form.adults,
+                        kids: form.kids,
+                        checkIn: form.checkIn,
+                        checkOut: form.checkOut,
+                        specialNotes: form.specialNotes
+                    });
                     slot.status = "Checked-In";
                     updated = true;
                 }
@@ -190,24 +323,32 @@ const QrScanner = () => {
         }
         if (!updated) {
             list.unshift({
-                refId: `STAFF-${activeRoomNumber}-${Date.now()}`,
+                refId: `STAFF-${targetRoomNum}-${Date.now()}`,
                 date: new Date().toISOString().split("T")[0],
                 status: "In-Progress & Serving",
                 guestName: form.guestName.trim(),
                 email: "staff-assigned@grandazure.com",
                 total: 0,
                 items: [{
-                    name: `${form.roomType} — Room ${activeRoomNumber}`,
+                    name: `${form.roomType} — Room ${targetRoomNum}`,
                     itemType: "room", quantity: 1, price: 0, status: "Checked-In",
-                    details: { roomNumber: activeRoomNumber, adults: form.adults, kids: form.kids, checkIn: form.checkIn, checkOut: form.checkOut, specialNotes: form.specialNotes },
+                    details: {
+                        roomNumber: targetRoomNum,
+                        roomType: form.roomType,
+                        adults: form.adults,
+                        kids: form.kids,
+                        checkIn: form.checkIn,
+                        checkOut: form.checkOut,
+                        specialNotes: form.specialNotes
+                    },
                 }],
             });
         }
         localStorage.setItem("customBookings", JSON.stringify(list));
         bump();
         triggerToast(updated
-            ? `✏️ Room ${activeRoomNumber} updated for ${form.guestName.trim()}`
-            : `✅ Room ${activeRoomNumber} assigned to ${form.guestName.trim()}`);
+            ? `✏️ Room ${activeRoomNumber} updated to ${targetRoomNum} for ${form.guestName.trim()}`
+            : `✅ Room ${targetRoomNum} assigned to ${form.guestName.trim()}`);
         setActiveRoomNumber(null);
     };
 
@@ -236,29 +377,6 @@ const QrScanner = () => {
     };
 
     /* ── dining allotment tab ─────────────────────────────────── */
-    const [diningMode, setDiningMode] = useState<"hotel" | "walkin">("hotel");
-
-    const [hotelGuestInput, setHotelGuestInput] = useState("");
-    const [hotelGuestAcOpen, setHotelGuestAcOpen] = useState(false);
-    const hotelGuestRef = useRef<HTMLDivElement>(null);
-    const [hotelTableNum, setHotelTableNum] = useState("");
-    const [hotelCovers, setHotelCovers] = useState(2);
-
-    const [walkInName, setWalkInName] = useState("");
-    const [walkInPhone, setWalkInPhone] = useState("");
-    const [walkInTable, setWalkInTable] = useState("");
-    const [walkInCovers, setWalkInCovers] = useState(2);
-    const [walkInNotes, setWalkInNotes] = useState("");
-
-    useEffect(() => {
-        const h = (e: MouseEvent) => {
-            if (hotelGuestRef.current && !hotelGuestRef.current.contains(e.target as Node))
-                setHotelGuestAcOpen(false);
-        };
-        document.addEventListener("mousedown", h);
-        return () => document.removeEventListener("mousedown", h);
-    }, []);
-
     const saveDining = (entry: DiningAllotment) => {
         if (diningAllotments.some(a => a.tableNumber === entry.tableNumber)) {
             triggerToast(`⚠️ Table ${entry.tableNumber} is already allotted!`); return;
@@ -269,19 +387,6 @@ const QrScanner = () => {
         triggerToast(`🍽 Table ${entry.tableNumber} allotted to ${entry.guestName}`);
     };
 
-    const handleAllotHotelGuest = () => {
-        if (!hotelGuestInput.trim() || !hotelTableNum.trim()) { triggerToast("⚠️ Enter guest name and table number."); return; }
-        const matched = allBookings.find(b => b.guestName.toLowerCase() === hotelGuestInput.trim().toLowerCase());
-        saveDining({ id: `DT-${Date.now()}`, tableNumber: hotelTableNum.trim(), guestName: hotelGuestInput.trim(), refId: matched?.refId, covers: hotelCovers, time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }), isWalkIn: false });
-        setHotelGuestInput(""); setHotelTableNum(""); setHotelCovers(2);
-    };
-
-    const handleAllotWalkIn = () => {
-        if (!walkInName.trim() || !walkInTable.trim()) { triggerToast("⚠️ Enter guest name and table number."); return; }
-        saveDining({ id: `DT-${Date.now()}`, tableNumber: walkInTable.trim(), guestName: walkInName.trim(), phone: walkInPhone.trim() || undefined, covers: walkInCovers, time: new Date().toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }), isWalkIn: true, specialNotes: walkInNotes.trim() || undefined });
-        setWalkInName(""); setWalkInPhone(""); setWalkInTable(""); setWalkInCovers(2); setWalkInNotes("");
-    };
-
     const handleRemoveDining = (id: string) => {
         const updated = diningAllotments.filter(a => a.id !== id);
         setDiningAllotments(updated);
@@ -290,6 +395,10 @@ const QrScanner = () => {
     };
 
     const handleUpdateDining = (id: string, changes: Partial<DiningAllotment>) => {
+        if (changes.tableNumber && diningAllotments.some(a => a.id !== id && a.tableNumber === changes.tableNumber)) {
+            triggerToast(`Table ${changes.tableNumber} is already allotted!`);
+            return;
+        }
         const updated = diningAllotments.map(a => a.id === id ? { ...a, ...changes } : a);
         setDiningAllotments(updated);
         localStorage.setItem("diningTableAllotments", JSON.stringify(updated));
@@ -335,6 +444,7 @@ const QrScanner = () => {
        Render
     ══════════════════════════════════════════════════════════ */
     return (
+        <>
         <section className="pt-36 pb-20 px-6 bg-gradient-to-b from-navy-50/20 via-white to-white min-h-screen text-left">
             {/* Toast */}
             {toastMsg && (
@@ -343,7 +453,7 @@ const QrScanner = () => {
                 </div>
             )}
 
-            <div className="max-w-6xl mx-auto">
+            <div className="min-w-6xl mx-auto">
                 {/* Page header */}
                 <div className="text-center mb-6">
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-500 mb-2 leading-tight">
@@ -357,13 +467,15 @@ const QrScanner = () => {
                 {/* Tab bar */}
                 <div className="flex items-center gap-2 border-b border-navy-100 pb-4 mb-8 justify-center flex-wrap">
                     {([
-                        { key: "verify" as const, label: "🔑 OTP Itinerary Desk" },
+                        { key: "verify" as const, label: "🔑 OTP Desk" },
                         { key: "occupancy" as const, label: "🏨 Room Occupancy" },
-                        { key: "dining" as const, label: "🍽 Dining Allotment" },
+                        { key: "dining" as const, label: "🍽 Dining" },
+                        { key: "events" as const, label: "🎉 Events" },
+                        { key: "roomconfig" as const, label: "⚙️ Room Config" },
                         { key: "qrlinks" as const, label: "🔗 QR Links" },
                     ]).map(tab => (
                         <button key={tab.key} onClick={() => setScannerTab(tab.key)}
-                            className={`px-5 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer ${scannerTab === tab.key ? "bg-navy-500 text-white shadow-md shadow-navy-500/10" : "bg-white border border-navy-100 hover:bg-navy-50 text-navy-500"}`}>
+                            className={`px-4 py-2.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${scannerTab === tab.key ? "bg-navy-500 text-white shadow-md shadow-navy-500/10" : "bg-white border border-navy-100 hover:bg-navy-50 text-navy-500"}`}>
                             {tab.label}
                         </button>
                     ))}
@@ -571,6 +683,7 @@ const QrScanner = () => {
                                         isUpdate={isRoomUpdate}
                                         documents={roomDocuments}
                                         guestNameSuggestions={allGuestNames}
+                                        occupancyMap={occupancyMap}
                                         isOccupied={!!occupancyMap[activeRoomNumber]}
                                         onSave={handleSaveRoomAssign}
                                         onClose={() => setActiveRoomNumber(null)}
@@ -595,208 +708,135 @@ const QrScanner = () => {
                     TAB 3 — Dining Table Allotment
                 ════════════════════════════════════════════════ */}
                 {scannerTab === "dining" && (
-                    <div className="animate-fade-in">
-                        {/* Stats */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
-                            <StatsCard label="Total Tables" value={TOTAL_DINING_TABLES} color="navy" />
-                            <StatsCard label="Occupied" value={diningAllotments.length} color="red" />
-                            <StatsCard label="Available" value={Math.max(0, TOTAL_DINING_TABLES - diningAllotments.length)} color="teal" />
-                            <StatsCard label="Walk-Ins Today" value={diningAllotments.filter(a => a.isWalkIn).length} color="gold" />
-                        </div>
+                    <DiningAllotmentTab
+                        allGuestNames={allGuestNames}
+                        diningAllotments={diningAllotments}
+                        onSaveDining={saveDining}
+                        onRemoveDining={handleRemoveDining}
+                        onUpdateDining={handleUpdateDining}
+                    />
+                )}
 
-                        {/* Visual floor map */}
-                        <div className="bg-white border border-navy-100 rounded-3xl p-5 mb-8 shadow-sm">
-                            <p className="text-[10px] uppercase font-bold text-navy-400 tracking-wider mb-3">
-                                Restaurant Floor Map ({TOTAL_DINING_TABLES} Tables)
-                            </p>
-                            <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 gap-2">
-                                {Array.from({ length: TOTAL_DINING_TABLES }).map((_, i) => {
-                                    const tNum = `T-${String(i + 1).padStart(2, "0")}`;
-                                    const allot = diningAllotments.find(a => a.tableNumber === tNum);
-                                    return (
-                                        <div key={tNum} title={allot ? `${allot.guestName} (${allot.covers} covers)` : "Available"}
-                                            className={`flex flex-col items-center justify-center p-2 rounded-xl border text-center transition-all ${allot ? (allot.isWalkIn ? "bg-gold-100 border-gold-300 text-gold-800" : "bg-red-100 border-red-200 text-red-800")
-                                                : "bg-teal-50 border-teal-200 text-teal-700"}`}>
-                                            <FaChair className="text-[10px] mb-0.5" />
-                                            <span className="text-[8px] font-black">{tNum}</span>
-                                            {allot && <span className="text-[7px] truncate w-full text-center font-bold mt-0.5">{allot.guestName.split(" ")[0]}</span>}
-                                        </div>
-                                    );
-                                })}
+                {/* ════════════════════════════════════════════════
+                    TAB 4 — Events & Banquet Desk
+                ════════════════════════════════════════════════ */}
+                {scannerTab === "events" && (
+                    <div className="animate-fade-in flex flex-col gap-8">
+                        {/* Header row */}
+                        <div className="flex items-center justify-between flex-wrap gap-3">
+                            <div>
+                                <h2 className="text-lg font-black text-navy-500 flex items-center gap-2">
+                                    <FaGlassCheers className="text-gold-500" /> Events & Banquet Desk
+                                </h2>
+                                <p className="text-xs text-navy-400 font-light mt-0.5">Book event spaces directly on behalf of guests.</p>
                             </div>
-                            <div className="flex items-center gap-4 mt-3 text-[10px] text-navy-400 flex-wrap">
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-teal-100 border border-teal-300 rounded" /> Available</span>
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-red-100 border border-red-200 rounded" /> Hotel Guest</span>
-                                <span className="flex items-center gap-1.5"><span className="w-3 h-3 bg-gold-100 border border-gold-300 rounded" /> Walk-In</span>
+                            <div className="flex flex-wrap gap-2">
+                                {banquetSpaces.map((space: typeof allProducts[0]) => (
+                                    <button key={space.id}
+                                        onClick={() => { setBanquetModalItem(space); setShowBanquetModal(true); }}
+                                        className="flex items-center gap-2 bg-gold-500 hover:bg-gold-600 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition-all cursor-pointer shadow-md shadow-gold-500/20">
+                                        <FaPlus className="text-[9px]" /> {space.heading}
+                                    </button>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                            {/* Allotment form */}
-                            <div className="lg:col-span-5 bg-white border border-gold-300/10 rounded-3xl p-6 shadow-md flex flex-col gap-5">
-                                <h3 className="text-sm font-bold text-navy-500 uppercase tracking-widest flex items-center gap-2">
-                                    <FaChair className="text-gold-500" /> Allot Dining Table
-                                </h3>
-
-                                {/* Mode toggle */}
-                                <div>
-                                    <label className="block text-[10px] uppercase font-bold text-navy-400 mb-2">Guest Type</label>
-                                    <div className="grid grid-cols-2 gap-2 bg-navy-50/60 p-1 rounded-xl">
-                                        <button onClick={() => setDiningMode("hotel")}
-                                            className={`py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${diningMode === "hotel" ? "bg-navy-500 text-white shadow-md" : "text-navy-500 hover:bg-navy-100"}`}>
-                                            <FaHotel className="text-[10px]" /> Hotel Guest
-                                        </button>
-                                        <button onClick={() => setDiningMode("walkin")}
-                                            className={`py-2.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-2 ${diningMode === "walkin" ? "bg-gold-500 text-white shadow-md" : "text-navy-500 hover:bg-navy-100"}`}>
-                                            🚶 Walk-In Guest
-                                        </button>
-                                    </div>
-                                    <p className="text-[10px] text-navy-300 mt-2 font-light">
-                                        {diningMode === "hotel" ? "Search from existing hotel bookings — auto-links reservation." : "For outside diners — enter their details manually."}
-                                    </p>
-                                </div>
-
-                                {/* Hotel guest form */}
-                                {diningMode === "hotel" && (<>
-                                    <div>
-                                        <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Search Hotel Guest *</label>
-                                        <AutocompleteInput
-                                            value={hotelGuestInput}
-                                            onChange={setHotelGuestInput}
-                                            suggestions={(hotelGuestInput.trim() === ""
-                                                ? allGuestNames.slice(0, 8)
-                                                : allGuestNames.filter(n => n.toLowerCase().includes(hotelGuestInput.toLowerCase())).slice(0, 8))}
-                                            onSelect={v => { setHotelGuestInput(v); setHotelGuestAcOpen(false); }}
-                                            placeholder="Type guest name or booking name…"
-                                            open={hotelGuestAcOpen}
-                                            setOpen={setHotelGuestAcOpen}
-                                            containerRef={hotelGuestRef}
-                                            extraHint="Not found in hotel records — switch to Walk-In"
-                                        />
-                                        {hotelGuestInput.trim() && (() => {
-                                            const m = allBookings.find(b => b.guestName.toLowerCase() === hotelGuestInput.trim().toLowerCase());
-                                            return m ? (
-                                                <div className="mt-2 bg-teal-50 border border-teal-100 rounded-xl p-2.5 text-[10px] text-teal-700">
-                                                    <p className="font-bold">✅ {m.guestName}</p>
-                                                    <p className="font-light mt-0.5">Ref: {m.refId} · {m.status}</p>
-                                                </div>
-                                            ) : null;
-                                        })()}
-                                    </div>
-                                    <div>
-                                        <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Or Select Booking</label>
-                                        <select
-                                            value={allBookings.find(b => b.guestName.toLowerCase() === hotelGuestInput.trim().toLowerCase())?.refId || ""}
-                                            onChange={e => { const b = allBookings.find(x => x.refId === e.target.value); if (b) setHotelGuestInput(b.guestName); }}
-                                            className="w-full bg-navy-50/50 border border-navy-100 rounded-xl p-3 text-xs text-navy-500 font-medium focus:outline-none focus:ring-1 focus:ring-gold-500 cursor-pointer">
-                                            <option value="">-- Browse all bookings --</option>
-                                            {allBookings.map(b => <option key={b.refId} value={b.refId}>{b.refId} — {b.guestName}</option>)}
-                                        </select>
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div>
-                                            <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Table Number *</label>
-                                            <input value={hotelTableNum} onChange={e => setHotelTableNum(e.target.value)} placeholder="e.g. T-07"
-                                                className="w-full bg-navy-50 border border-navy-100 rounded-xl p-2.5 text-xs text-navy-500 font-medium focus:outline-none focus:border-gold-500 transition-all" />
-                                            {diningAllotments.some(a => a.tableNumber === hotelTableNum.trim()) && hotelTableNum.trim() && <p className="text-[10px] text-red-500 mt-1 font-semibold">⚠ Already allotted</p>}
-                                        </div>
-                                        <div>
-                                            <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Covers</label>
-                                            <div className="flex items-center gap-2">
-                                                <button onClick={() => setHotelCovers(c => Math.max(1, c - 1))} className="w-8 h-8 rounded-lg bg-navy-50 border border-navy-100 text-navy-500 font-bold hover:bg-navy-100 cursor-pointer">−</button>
-                                                <span className="flex-1 text-center text-sm font-black text-navy-500">{hotelCovers}</span>
-                                                <button onClick={() => setHotelCovers(c => Math.min(20, c + 1))} className="w-8 h-8 rounded-lg bg-navy-50 border border-navy-100 text-navy-500 font-bold hover:bg-navy-100 cursor-pointer">+</button>
+                        {/* Active banquet bookings */}
+                        {banquetBookings.length === 0 ? (
+                            <div className="bg-navy-50/60 border border-dashed border-navy-200 rounded-3xl p-12 text-center text-navy-400 flex flex-col items-center gap-3">
+                                <FaGlassCheers className="text-3xl text-gold-300" />
+                                <p className="text-xs font-bold text-navy-500">No Active Event Bookings</p>
+                                <p className="text-[10px] font-light">Use the buttons above to book an event space for a guest.</p>
+                            </div>
+                        ) : (
+                            <div className="flex flex-col gap-4">
+                                <h3 className="text-xs uppercase font-bold text-navy-400 tracking-wider">Active Event Bookings ({banquetBookings.length})</h3>
+                                {banquetBookings.map(bq => (
+                                    <div key={bq.id} className="bg-white border border-navy-100 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-start gap-4 shadow-sm">
+                                        <div className="flex-1 flex flex-col gap-1.5">
+                                            <div className="flex items-center gap-2 flex-wrap">
+                                                <span className="text-sm font-black text-navy-500">{bq.spaceName}</span>
+                                                <span className={`text-[9px] px-2 py-0.5 rounded-full font-bold border ${
+                                                    bq.status === "Confirmed" ? "bg-teal-100 text-teal-700 border-teal-200"
+                                                    : bq.status === "Completed" ? "bg-navy-100 text-navy-500 border-navy-200"
+                                                    : "bg-gold-100 text-gold-700 border-gold-200"
+                                                }`}>{bq.status}</span>
+                                            </div>
+                                            <p className="text-[10px] text-navy-400">
+                                                <FaUser className="inline mr-1 text-[8px] text-gold-500" />{bq.guestName}
+                                                &nbsp;·&nbsp; 📅 {bq.bookingDate} at {bq.bookingTime}
+                                                &nbsp;·&nbsp; 👥 {bq.expectedGuests} guests
+                                            </p>
+                                            <p className="text-[10px] text-navy-400">
+                                                🪑 {bq.seatingStyle} &nbsp;·&nbsp;
+                                                🍽 {bq.cateringPlan} &nbsp;·&nbsp;
+                                                🎵 {bq.avRig} &nbsp;·&nbsp;
+                                                🎨 {bq.decorTheme}
+                                            </p>
+                                            <div className="flex items-center gap-2 mt-1">
+                                                <span className="text-xs font-black text-navy-600">₹{bq.grandTotal.toLocaleString()}</span>
+                                                {bq.status === "Confirmed" && (
+                                                    <button onClick={() => {
+                                                        const updated = banquetBookings.map(b => b.id === bq.id ? { ...b, status: "Completed" as const } : b);
+                                                        setBanquetBookings(updated);
+                                                        localStorage.setItem("staffBanquetBookings", JSON.stringify(updated));
+                                                        triggerToast(`✅ ${bq.spaceName} marked as Completed.`);
+                                                    }} className="flex items-center gap-1 bg-teal-500 hover:bg-teal-600 text-white font-bold px-2.5 py-1 rounded-lg text-[9px] cursor-pointer transition-all">
+                                                        <FaCheckCircle className="text-[8px]" /> Mark Complete
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
+                                        <button onClick={() => handleRemoveBanquetBooking(bq.id)}
+                                            className="shrink-0 text-red-300 hover:text-red-500 cursor-pointer transition-colors p-1">
+                                            <FaTrash className="text-sm" />
+                                        </button>
                                     </div>
-                                    <button onClick={handleAllotHotelGuest} disabled={!hotelGuestInput.trim() || !hotelTableNum.trim()}
-                                        className="w-full flex items-center justify-center gap-2 bg-navy-500 hover:bg-navy-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl text-xs transition-all cursor-pointer shadow-md shadow-navy-500/20">
-                                        <FaPlus className="text-[10px]" /> Allot Table for Hotel Guest
-                                    </button>
-                                </>)}
-
-                                {/* Walk-in form */}
-                                {diningMode === "walkin" && (<>
-                                    <div>
-                                        <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Guest Name *</label>
-                                        <input value={walkInName} onChange={e => setWalkInName(e.target.value)} placeholder="Walk-in guest name…"
-                                            className="w-full bg-navy-50 border border-navy-100 rounded-xl p-2.5 text-xs text-navy-500 font-medium focus:outline-none focus:border-gold-500 transition-all" />
-                                    </div>
-                                    <div>
-                                        <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">
-                                            <FaPhoneAlt className="inline text-[9px] text-gold-500 mr-1" /> Phone <span className="font-normal text-navy-300">(optional)</span>
-                                        </label>
-                                        <input value={walkInPhone} onChange={e => setWalkInPhone(e.target.value)} placeholder="+91 98765 43210"
-                                            className="w-full bg-navy-50 border border-navy-100 rounded-xl p-2.5 text-xs text-navy-500 font-medium focus:outline-none focus:border-gold-500 transition-all" />
-                                    </div>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <div>
-                                            <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Table Number *</label>
-                                            <input value={walkInTable} onChange={e => setWalkInTable(e.target.value)} placeholder="e.g. T-03"
-                                                className="w-full bg-navy-50 border border-navy-100 rounded-xl p-2.5 text-xs text-navy-500 font-medium focus:outline-none focus:border-gold-500 transition-all" />
-                                            {diningAllotments.some(a => a.tableNumber === walkInTable.trim()) && walkInTable.trim() && <p className="text-[10px] text-red-500 mt-1 font-semibold">⚠ Already allotted</p>}
-                                        </div>
-                                        <div>
-                                            <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Covers</label>
-                                            <div className="flex items-center gap-2">
-                                                <button onClick={() => setWalkInCovers(c => Math.max(1, c - 1))} className="w-8 h-8 rounded-lg bg-navy-50 border border-navy-100 text-navy-500 font-bold hover:bg-navy-100 cursor-pointer">−</button>
-                                                <span className="flex-1 text-center text-sm font-black text-navy-500">{walkInCovers}</span>
-                                                <button onClick={() => setWalkInCovers(c => Math.min(20, c + 1))} className="w-8 h-8 rounded-lg bg-navy-50 border border-navy-100 text-navy-500 font-bold hover:bg-navy-100 cursor-pointer">+</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <label className="block text-[10px] uppercase font-bold text-navy-400 mb-1.5">Special Notes</label>
-                                        <textarea rows={2} value={walkInNotes} onChange={e => setWalkInNotes(e.target.value)} placeholder="Allergies, preferences, occasion…"
-                                            className="w-full bg-navy-50 border border-navy-100 rounded-xl p-2.5 text-xs text-navy-500 font-medium focus:outline-none focus:border-gold-500 resize-none transition-all" />
-                                    </div>
-                                    <button onClick={handleAllotWalkIn} disabled={!walkInName.trim() || !walkInTable.trim()}
-                                        className="w-full flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-600 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-3 rounded-xl text-xs transition-all cursor-pointer shadow-md shadow-gold-500/20">
-                                        <FaPlus className="text-[10px]" /> Allot Table for Walk-In Guest
-                                    </button>
-                                </>)}
+                                ))}
                             </div>
-
-                            {/* Live table board */}
-                            <div className="lg:col-span-7 flex flex-col gap-4">
-                                <div className="flex items-center justify-between">
-                                    <h3 className="text-sm font-bold text-navy-500 uppercase tracking-widest flex items-center gap-2">
-                                        <FaUtensils className="text-gold-500" /> Live Table Board
-                                    </h3>
-                                    <div className="flex items-center gap-2">
-                                        <span className="text-[10px] bg-teal-50 text-teal-700 border border-teal-200 rounded-full px-3 py-1 font-bold">
-                                            {diningAllotments.filter(a => !a.isWalkIn).length} Hotel
-                                        </span>
-                                        <span className="text-[10px] bg-gold-50 text-gold-700 border border-gold-200 rounded-full px-3 py-1 font-bold">
-                                            {diningAllotments.filter(a => a.isWalkIn).length} Walk-In
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {diningAllotments.length === 0 ? (
-                                    <div className="bg-white border border-navy-100 rounded-3xl p-12 text-center text-navy-400">
-                                        <FaChair className="text-4xl mx-auto mb-3 text-gold-300" />
-                                        <h4 className="text-sm font-bold text-navy-500 mb-1">No Tables Allotted Yet</h4>
-                                        <p className="text-xs font-light max-w-xs mx-auto">Use the form to assign dining tables.</p>
-                                    </div>
-                                ) : (
-                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        {diningAllotments.map(allot => (
-                                            <DiningTableCard
-                                                key={allot.id}
-                                                allotment={allot}
-                                                onRemove={handleRemoveDining}
-                                                onUpdate={handleUpdateDining}
-                                            />
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
+                        )}
                     </div>
+                )}
+
+                {/* ════════════════════════════════════════════════
+                    TAB 5 — Room Configuration
+                ════════════════════════════════════════════════ */}
+                {scannerTab === "roomconfig" && (
+                    <RoomConfigTab
+                        occupancyMap={occupancyMap}
+                        configs={roomConfigs}
+                        onConfigsChange={handleRoomConfigsChange}
+                    />
                 )}
             </div>
         </section>
+
+        {/* Banquet booking modal for staff */}
+        {showBanquetModal && banquetModalItem && (
+            <BanquetConfigModal
+                item={banquetModalItem}
+                onClose={() => { setShowBanquetModal(false); setBanquetModalItem(null); }}
+                onConfirm={handleStaffBanquetConfirm}
+                isStaffFlow
+                guestNameSuggestions={allGuestNames}
+            />
+        )}
+
+        {/* Room upgrade modal */}
+        {upgradeTarget && (
+            <RoomUpgradeModal
+                fromRoomNumber={upgradeTarget.roomNumber}
+                fromRoomType={upgradeTarget.roomType}
+                guestName={upgradeTarget.guestName}
+                refId={upgradeTarget.refId}
+                currentNightlyRate={upgradeTarget.nightlyRate}
+                occupancyMap={occupancyMap}
+                roomConfigs={roomConfigs}
+                onClose={() => setUpgradeTarget(null)}
+                onConfirm={handleUpgradeConfirm}
+            />
+        )}
+        </>
     );
 };
 

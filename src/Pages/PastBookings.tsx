@@ -22,6 +22,12 @@ interface BookingItem {
         bookingDate?: string;
         bookingTime?: string;
         specialNotes?: string;
+        seatingStyle?: string;
+        cateringPlan?: string;
+        avRig?: string;
+        decorTheme?: string;
+        expectedGuests?: number;
+        calculatedPrice?: number;
     };
 }
 
@@ -208,9 +214,11 @@ const PastBookings = () => {
                                                                 ? "bg-navy-100 text-navy-600" 
                                                                 : item.itemType === "service"
                                                                 ? "bg-purple-100 text-purple-700"
+                                                                : item.itemType === "banquet"
+                                                                ? "bg-indigo-100 text-indigo-700"
                                                                 : "bg-gold-100 text-gold-700"
                                                         }`}>
-                                                            {item.itemType === "room" ? "Suite" : item.itemType === "service" ? "Service" : "Dining"}
+                                                            {item.itemType === "room" ? "Suite" : item.itemType === "service" ? "Service" : item.itemType === "banquet" ? "Event" : "Dining"}
                                                         </span>
                                                         <h4 className="text-sm font-semibold text-navy-500 inline">
                                                             {item.name}
@@ -268,6 +276,14 @@ const PastBookings = () => {
                                                                     <p>✈ <strong>Flight No:</strong> {item.details.roomNumber || "Pending"} &nbsp;|&nbsp; 📍 <strong>Pickup Point:</strong> {item.details.tableNumber || "T3 Gates"}</p>
                                                                 )}
                                                                 {item.details.specialNotes && <p>✍ <strong>Special Requests:</strong> "{item.details.specialNotes}"</p>}
+                                                            </>
+                                                        )}
+                                                        {item.itemType === "banquet" && (
+                                                            <>
+                                                                <p>🗓 <strong>Event Date:</strong> {item.details.bookingDate} &nbsp;|&nbsp; ⏰ <strong>Time:</strong> {item.details.bookingTime}</p>
+                                                                <p>🪑 <strong>Seating Layout:</strong> {item.details.seatingStyle} &nbsp;|&nbsp; 👥 <strong>Expected Guests:</strong> {item.details.expectedGuests}</p>
+                                                                <p>🍽 <strong>Catering:</strong> {item.details.cateringPlan} &nbsp;|&nbsp; 🎨 <strong>Decor Theme:</strong> {item.details.decorTheme}</p>
+                                                                {item.details.avRig && <p>🎵 <strong>AV Setup:</strong> {item.details.avRig}</p>}
                                                             </>
                                                         )}
                                                     </div>

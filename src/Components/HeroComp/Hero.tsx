@@ -11,21 +11,21 @@ const Hero = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-gold-200/10 rounded-full blur-3xl -z-10" />
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-navy-200/10 rounded-full blur-3xl -z-10" />
 
-            <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className=" mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                 {/* Left Text Block */}
                 <div className="flex flex-col items-start text-left">
                     <span className="inline-block bg-gold-100/60 text-gold-700 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase border border-gold-300/20 mb-6">
                         {welcome}
                     </span>
-                    
+
                     <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-navy-500 mb-6 leading-tight tracking-tight">
                         {title}
                     </h1>
-                    
+
                     <p className="text-lg text-navy-400 font-normal leading-relaxed mb-8 max-w-xl">
                         {subtitle}
                     </p>
-                    
+
                     {/* Bullets List */}
                     <div className="flex flex-col gap-3.5 mb-8 w-full">
                         {bullets.map((bullet, index) => (

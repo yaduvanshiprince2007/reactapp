@@ -13,7 +13,7 @@ const Amenities = () => {
 
     return (
         <section className="pt-36 pb-20 px-6 bg-gradient-to-b from-navy-50/20 via-white to-white min-h-screen">
-            <div className="max-w-7xl mx-auto">
+            <div className=" mx-auto">
                 {/* Header */}
                 <div className="max-w-3xl mx-auto text-center mb-16">
                     <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-navy-500 mb-2 leading-tight">
@@ -27,8 +27,8 @@ const Amenities = () => {
                 {/* Amenities Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                     {list.map((item, index) => (
-                        <Link 
-                            key={index} 
+                        <Link
+                            key={index}
                             to={`/amenity/${item.id}`}
                             className="bg-white border border-gold-300/10 p-6 rounded-2xl shadow-sm hover:shadow-md hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center cursor-pointer group"
                         >
